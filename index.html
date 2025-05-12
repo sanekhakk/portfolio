@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanekha K K</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+    <h1 class="bg-[#353535] text-gray-200 font-bold text-xl py-2 p-5">Portfolio</h1>
+    <div class="flex flex-col md:flex-row sm:flex-row  gap-10 justify-center items-center  bg-[#3c6e71] p-6 md:px-[300px] ">
+        <div class="max-w-[200px] h-full items-center">
+            <img class="h-full rounded-full" src="images/profile.jpg">
+        </div>
+        <div class="text-center">
+            <h1 class="text-gray-100 items-center text-4xl  ">Sanekha K K </h1>
+            <p class="py-5 text-gray-300">Motivated and detail-oriented B.Tech CSE student with hands-on experience in web development, teaching, and digital illustration. Passionate about building user-friendly digital solutions and inspiring young minds through education.</p>
+            
+
+        </div>
+    </div>
+    <div>
+        <h1 class="bg-[#d9d9d9] text-[#3c6e71] text-xl font-bold py-2 p-5 text-center">Personal Details</h1>
+        <div class="p-5 text-center  md:flex md:flex-cols gap-8 justify-center">
+            <h2 class="font-bold"><i class="fa-solid fa-cake-candles"></i> Date of Birth : 30-03-2004</h2>
+            <h2 class="font-bold"><i class="fa-solid fa-location-dot"></i> Current Location  : Kozhikode, Kerala</h2>
+
+
+            
+            
+        </div>
+    </div>
+    <div class="bg-[#d9d9d9] text-[#3c6e71] p-5 border-b-4 cursor-pointer">
+        <h1 class="font-bold text-2xl md:text-center " onclick="expand(this)" data-target="education"><span id="arrow">▼</i></span> Education</h1>
+    </div>
+
+    <div  id="education"  class="mx-6 my-6 relative hidden  gap-[10%] border-l-4 md:border-t-4 md:border-l-0 border-[#3c6e71]  md:py-5 md:pl-6 ">
+      
+      <div class="mb-8 relative px-6">
+        <div class="absolute -left-[14px] top-0 md:top-5 bg-[#3c6e71] w-6 h-6 rounded-full flex  items-center justify-center text-white text-sm font-bold md:br">1</div>
+        <h3 class="text-lg font-semibold text-gray-800">High School</h3>
+        <p class="text-gray-600">ST Francis Higher Scecondary School, Kerala<br>Year: 2020<br>Curriculum : ICSE<br>Percentile: 93.8</p> 
+      </div>
+
+      <div class="mb-8 relative pl-6">
+        <div class="absolute -left-[14px] top-0 md:top-5 bg-[#3c6e71] w-6 h-6 rounded-full flex items-center justify-center text-white text-sm font-bold">2</div>
+        <h3 class="text-lg font-semibold text-gray-800">Higher Secondary</h3>
+        <p class="text-gray-600">GHSS Nadakkavu, Kerala<br>Year: 2020-2022<br>Curriculum : Kerala Board<br>Percentage: 92.7</p> 
+      </div>
+
+      <div class="mb-8 relative pl-6">
+        <div class="absolute -left-[14px] top-0 md:top-5 bg-[#3c6e71] w-6 h-6 rounded-full flex items-center justify-center text-white text-sm font-bold">3</div>
+        <h3 class="text-lg font-semibold text-gray-800">B.Tech CSE</h3>
+        <p class="text-gray-600">Lovely Professional University<br>Year: 2023 - 2027</p>
+      </div>
+
+      <div class="mb-8 relative pl-6">
+        <div class="absolute -left-[14px] top-0 md:top-5 bg-[#3c6e71] w-6 h-6 rounded-full flex items-center justify-center text-white text-sm font-bold">4</div>
+        <h3 class="text-lg font-semibold text-gray-800">Future Goal</h3>
+        <p class="text-gray-600">Full Stack Developer</p>
+      </div>
+
+    </div>
+
+    <div class="bg-[#d9d9d9] text-[#3c6e71] p-5 cursor-pointer border-b-4">
+        <h1 class="font-bold text-2xl md:text-center " onclick="expand(this)" data-target="certifications"><span id="arrow">▼</i></span> Certifications</h1>
+    </div>
+
+    <div  id="certifications"  class="mx-12 my-6 relative hidden  gap-[10%]    md:py-5 md:pl-6 ">
+      
+      <div class="mb-8 relative px-6 ">
+        <div class="absolute -left-[14px] top-0 md:top-5 bg-[#3c6e71] w-6 h-6 rounded-full flex  items-center justify-center text-white text-sm font-bold md:br">1</div>
+        <h3 class="text-lg font-semibold text-gray-800  ">Microlearning In Full Stack Web Development</h3>
+        <p class="text-gray-600">Board Infinity<br>2023</p><br>
+        <img  src="images/certificateBoardInfinity.png">
+      </div>
+
+      <div class="mb-8 relative pl-6">
+        <div class="absolute -left-[14px] top-0 md:top-5 bg-[#3c6e71] w-6 h-6 rounded-full flex items-center justify-center text-white text-sm font-bold">2</div>
+        <h3 class="text-lg font-semibold text-gray-800">Python Industrial Training</h3>
+        <p class="text-gray-600">Code Sprint<br>2024</p> <br>
+        <img src="images/certificateCodeSprint.png">
+      </div>
+
+      <div class="mb-8 relative pl-6">
+        <div class="absolute -left-[14px] top-0 md:top-5 bg-[#3c6e71] w-6 h-6 rounded-full flex items-center justify-center text-white text-sm font-bold">3</div>
+        <h3 class="text-lg font-semibold text-gray-800">Responsive Web Design</h3>
+        <p class="text-gray-600">FreeCodeCamp<br>2024</p><br>
+        <img src="images/certificateFreeCodeCamp.png">
+      </div>
+
+    </div>
+
+    <div class="bg-[#d9d9d9] text-[#3c6e71] p-5 cursor-pointer border-b-4">
+        <h1 class="font-bold text-2xl md:text-center " onclick="expand(this)" data-target="projects"><span id="arrow">▼</i></span> Projects</h1>
+    </div>
+
+    <div  id="projects"  class="mx-6 my-6 relative hidden  gap-[10%] border-l-4 md:border-t-4 md:border-l-0 border-[#3c6e71]  md:py-5 md:pl-6 ">
+      
+      <div class="mb-8 relative px-6 ">
+        <div class="absolute -left-[14px] top-0 md:top-5 bg-[#3c6e71] w-6 h-6 rounded-full flex  items-center justify-center text-white text-sm font-bold md:br">1</div>
+        <h3 class="text-lg font-semibold text-gray-800 ">pieceofart.in</h3>
+        <p class="text-gray-600">March 2025<br>Pieceofart.in is a platform for custom illustrations, offering personalized artwork tailored to individual preferences. Built with a focus on creativity and quality, it provides a seamless experience for exploring, requesting, andpurchasing unique designs.<br><b>Skills used </b>- Javascript,Html/Css</p> 
+        <br><a href="https://sanekhakk.github.io/pieceofart.in/" class="bg-[#3c6e71] text-gray-200 p-2 rounded-lg">Visit Website</a>
+      </div>
+
+      <div class="mb-8 relative pl-6">
+        <div class="absolute -left-[14px] top-0 md:top-5 bg-[#3c6e71] w-6 h-6 rounded-full flex items-center justify-center text-white text-sm font-bold">2</div>
+        <h3 class="text-lg font-semibold text-gray-800">Eco Quota</h3>
+        <p class="text-gray-600">Carbon offset calculator<br>February 2024<br>Developed a user-friendly web-based Carbon Offset Calculator that helps individuals and businesses estimate their carbon footprint and find equivalent eco-friendly actions to offset it. The tool promotes environmental awareness by providing actionable suggestions to reduce carbon emissions and support sustainability initiatives.<br><b>Skills used </b> - HTML,CSS,Javascript</p> 
+        <br><a href="https://sanekhakk.github.io/EcoQuota/" class="bg-[#3c6e71] text-gray-200 p-2 rounded-lg">Visit Website</a>
+      
+      </div>
+
+    </div>
+
+    <div class="bg-[#d9d9d9] text-[#3c6e71] p-5 cursor-pointer border-b-4">
+        <h1 class="font-bold text-2xl md:text-center " onclick="expand(this)" data-target="achievements"><span id="arrow">▼</i></span> Achievements</h1>
+    </div>
+
+    <div  id="achievements"  class="mx-6 my-6 relative hidden  gap-[10%] border-l-4 md:border-t-4 md:border-l-0 border-[#3c6e71]  md:py-5 md:pl-6 ">
+      
+
+        <div class="mb-8 relative px-6 ">
+        <div class="absolute -left-[14px] top-0 md:top-5 bg-[#3c6e71] w-6 h-6 rounded-full flex  items-center justify-center text-white text-sm font-bold md:br">1</div>
+        <h3 class="text-lg font-semibold text-gray-800">Hackathon by Noding Ninjas, LPU</h3>
+        <p class="text-gray-600">November 2023<br> participated in the Hackathon organized by Noding Ninjas, LPU, where I contributed as a front-end developer in building a Fashion Retail Website.</p> 
+      </div>
+
+      <div class="mb-8 relative px-6 ">
+        <div class="absolute -left-[14px] top-0 md:top-5 bg-[#3c6e71] w-6 h-6 rounded-full flex  items-center justify-center text-white text-sm font-bold md:br">1</div>
+        <h3 class="text-lg font-semibold text-gray-800">Community Development Project</h3>
+        <p class="text-gray-600">July 2024<br>As part of a community development project, I collaborated with OISCA NGO to promote biodiversity by organizing the Green Wave Campaign in Kozhikode district. I selected and coordinated with 8 schools, guided students in tree-planting activities, and raised awareness about environmental conservation. This hands-on initiative engaged students in sustainable practices and nurtured a sense of responsibility towards nature.</p> 
+      </div>
+
+      
+
+      
+      </div>
+
+    </div>
+
+    <div class="bg-[#3c6e71] p-6 md:text-center">
+        <h1 class="font-bold text-xl"> <i class="fa-solid fa-paper-plane"></i> Keep in Touch</h1><br>
+        <p class="pb-3">Every project starts with a simple conversation. If you liked my work and think we could make something awesome together, don’t hesitate to reach out.</p>
+        <div class="md:flex md:flex-cols md:justify-center gap-5">
+                <div class="flex md:justify-center gap-2 items-center">
+                    <i class="fa-solid fa-square-phone"></i>
+                    <h5> +91 7012560585</h5>
+                </div>
+                <div class="flex  md:justify-center gap-2 items-center">
+                    <i class="fa-brands fa-linkedin"></i>
+                    <a href="https://www.linkedin.com/in/sanekhakk/"> sanekhakk</a>
+                </div>
+                <div class="flex md:justify-center gap-2 items-center">
+                    <i class="fa-brands fa-square-instagram"></i>
+                    <a href="https://www.instagram.com/sanuuh___/"> sanuuh___</a>
+                </div>
+                
+        </div>
+    </div>
+
+    
+    
+
+</body>
+</html>
