@@ -6,7 +6,13 @@ function expand(element) {
     if (content.classList.contains('hidden')) {
         content.classList.remove('hidden');
         if (window.innerWidth >= 768) {
+            if(content.classList.contains('md:hidden')){
+                content.classList.remove('md:hidden');
+                content.classList.add('flex', 'flex-cols','flex-wrap','justify-center');
+            }
+            else{
             content.classList.add('flex', 'flex-cols');
+            }
         } else {
             content.classList.add('block');
         }
