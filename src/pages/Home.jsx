@@ -27,7 +27,7 @@ const PEEK_SKILLS = [
 const STATS = [
   ['2+', 'Years Experience'],
   ['10+', 'Projects Built'],
-  ['100+', 'Students Taught'],
+  ['50+', 'Students Taught'],
   ['7.77', 'CGPA at LPU'],
 ];
 
