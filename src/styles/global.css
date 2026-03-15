@@ -1,0 +1,161 @@
+/* ─────────────────────────────────────────
+   global.css  –  variables · reset · utils
+   Advanced Portfolio Edition
+───────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --rose-50:   #fdf0f4;
+  --rose-100:  #f9d5e2;
+  --rose-200:  #f0afc4;
+  --rose-300:  #e485a6;
+  --rose-400:  #d4607f;
+  --rose-500:  #be3d62;
+  --rose-600:  #9b2f52;
+  --rose-700:  #761f3d;
+  --rose-800:  #4e1228;
+  --sage-50:   #f0f5f2;
+  --sage-100:  #e4ede7;
+  --sage-200:  #bdd0c3;
+  --sage-400:  #7da98b;
+  --sage-600:  #4e7a5e;
+  --gold-100:  #fdf0d5;
+  --gold-400:  #c9943a;
+  --cream:     #fdf9f6;
+  --cream-2:   #f7f0ea;
+  --cream-3:   #f0e6dd;
+  --white:     #ffffff;
+  --ink:       #1a1015;
+  --ink-2:     #3d2535;
+  --ink-3:     #5c3e4d;
+  --muted:     #7d5f6e;
+  --muted-2:   #b09aa5;
+  --muted-3:   #d4c4cc;
+  --serif:  'Cormorant Garamond', Georgia, serif;
+  --sans:   'DM Sans', system-ui, sans-serif;
+  --mono:   'DM Mono', 'Fira Code', monospace;
+  --nav-h: 72px;
+  --section-px: clamp(1.5rem, 7vw, 8rem);
+  --shadow-sm:  0 2px 12px rgba(155,63,95,.06);
+  --shadow-md:  0 6px 28px rgba(155,63,95,.10);
+  --shadow-lg:  0 16px 56px rgba(155,63,95,.14);
+  --shadow-xl:  0 28px 80px rgba(155,63,95,.18);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html { scroll-behavior: smooth; font-size: 16px; -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: var(--sans);
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.018; pointer-events: none; z-index: 9999;
+}
+
+img { max-width: 100%; display: block; }
+a   { color: inherit; text-decoration: none; }
+ul  { list-style: none; }
+button { font-family: var(--sans); cursor: pointer; border: none; background: none; }
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--rose-300), var(--rose-500)); border-radius: 99px; }
+::selection { background: var(--rose-200); color: var(--rose-800); }
+
+/* ── Centered eyebrow ── */
+.eyebrow {
+  font-size: 0.68rem; font-weight: 600; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--rose-500);
+  display: flex; align-items: center; justify-content: center;
+  gap: 0.75rem; margin-bottom: 1rem; font-family: var(--sans);
+}
+.eyebrow::before, .eyebrow::after {
+  content: ''; display: block; width: 28px; height: 1.5px;
+  background: linear-gradient(90deg, var(--rose-400), var(--rose-200));
+  flex-shrink: 0; border-radius: 2px;
+}
+
+/* ── Display heading (always centered) ── */
+.display {
+  font-family: var(--serif); font-weight: 300; line-height: 1.06;
+  color: var(--ink); letter-spacing: -0.01em; text-align: center;
+}
+.display em { font-style: italic; color: var(--rose-700); }
+
+/* ── Rule (centered) ── */
+.rule {
+  width: 56px; height: 2px;
+  background: linear-gradient(90deg, var(--rose-500), var(--rose-200), transparent);
+  border-radius: 2px; margin: 1rem auto 2.5rem;
+}
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.9rem 2.2rem; border-radius: 40px; font-size: 0.82rem;
+  font-weight: 500; letter-spacing: 0.06em;
+  transition: all 0.3s var(--ease-smooth); cursor: pointer;
+  position: relative; overflow: hidden;
+}
+.btn-fill {
+  background: linear-gradient(135deg, var(--rose-500), var(--rose-700));
+  color: #fff; border: 1.5px solid transparent;
+  box-shadow: 0 4px 16px rgba(155,63,95,.28), inset 0 1px 0 rgba(255,255,255,.12);
+}
+.btn-fill:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(155,63,95,.38); }
+.btn-ghost { background: transparent; color: var(--rose-600); border: 1.5px solid var(--rose-200); }
+.btn-ghost:hover { border-color: var(--rose-400); background: var(--rose-50); transform: translateY(-2px); }
+.btn-fill-light { background: #fff; color: var(--rose-700); border: 1.5px solid #fff; }
+.btn-fill-light:hover { background: var(--rose-50); transform: translateY(-2px); }
+
+/* ── Chip ── */
+.chip {
+  display: inline-flex; align-items: center;
+  padding: 0.22rem 0.75rem; border-radius: 20px;
+  font-size: 0.71rem; font-weight: 500; letter-spacing: 0.04em;
+  background: var(--rose-50); color: var(--rose-600); border: 1px solid var(--rose-100);
+  transition: all 0.2s;
+}
+.chip:hover { background: var(--rose-100); border-color: var(--rose-200); }
+
+/* ── Section header ── */
+.section-header { text-align: center; max-width: 620px; margin: 0 auto 4.5rem; }
+.section-header .display { font-size: clamp(2.2rem, 3.5vw, 3.4rem); margin: 0.5rem 0 1rem; }
+.section-header p { font-size: 1rem; color: var(--muted); line-height: 1.8; }
+
+/* ── Animations ── */
+@keyframes fadeUp   { from { opacity:0; transform:translateY(32px); } to { opacity:1; transform:translateY(0); } }
+@keyframes fadeIn   { from { opacity:0; } to { opacity:1; } }
+@keyframes scaleIn  { from { opacity:0; transform:scale(0.88); } to { opacity:1; transform:scale(1); } }
+@keyframes slideRight { from { opacity:0; transform:translateX(-24px); } to { opacity:1; transform:translateX(0); } }
+
+.anim       { animation: fadeUp 0.8s var(--ease-out) both; }
+.anim-fade  { animation: fadeIn 0.6s ease both; }
+.anim-scale { animation: scaleIn 0.5s var(--ease-spring) both; }
+.d1 { animation-delay:.08s; } .d2 { animation-delay:.18s; } .d3 { animation-delay:.30s; }
+.d4 { animation-delay:.44s; } .d5 { animation-delay:.58s; } .d6 { animation-delay:.74s; }
+
+.divider {
+  width: 100%; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--rose-100) 30%, var(--rose-100) 70%, transparent);
+  margin: 2.5rem 0;
+}
+
+/* ── Gradient text utility ── */
+.gradient-text {
+  background: linear-gradient(135deg, var(--rose-600), var(--rose-400));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
