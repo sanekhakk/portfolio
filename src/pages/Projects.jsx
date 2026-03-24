@@ -1,9 +1,7 @@
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import '../styles/Projects.css';
 
-// ─────────────────────────────────────────────────────────────────
-//  ALL PROJECTS — add new ones at the bottom of this array.
-//  Every project gets the full detailed treatment automatically.
-// ─────────────────────────────────────────────────────────────────
 const PROJECTS = [
   {
     name: 'Smart Help AI',
@@ -12,6 +10,10 @@ const PROJECTS = [
     type: 'Full Stack · AI',
     featured: true,
     desc: 'An AI-powered helpdesk platform that automatically analyzes, categorizes, and routes incoming IT support tickets using Gemini 2.0 Flash — dramatically reducing manual triage time.',
+    images: [
+      'https://raw.githubusercontent.com/sanekhakk/Smart-Helpdesk-Ticketing-Solution-for-IT-Services/main/screenshots/dash.png',
+      'https://raw.githubusercontent.com/sanekhakk/Smart-Helpdesk-Ticketing-Solution-for-IT-Services/main/screenshots/admin.png'
+    ],
     highlights: [
       'Dual-portal system with user dashboard and secure admin console for structured workflow management.',
       'Automated PATCH-based escalation workflows reduced unresolved tickets by 40% and admin effort by 50%.',
@@ -23,9 +25,9 @@ const PROJECTS = [
     github: 'https://github.com/sanekhakk/Smart-Helpdesk-Ticketing-Solution-for-IT-Services',
     accent: 'rose',
     stats: [
-      { value: '40%', label: 'Fewer Unresolved Tickets' },
-      { value: '50%', label: 'Less Admin Effort' },
-      { value: '100%', label: 'Secure Sessions' },
+      { value: '40%', label: 'Efficiency' },
+      { value: '50%', label: 'Admin Ease' },
+      { value: '100%', label: 'Secure' },
     ],
   },
   {
@@ -35,6 +37,16 @@ const PROJECTS = [
     type: 'SaaS · Full Stack',
     featured: true,
     desc: 'A Django-based SaaS platform that enables small businesses to auto-generate WhatsApp-compatible product catalogs with sharable URLs and dynamic QR codes for seamless digital distribution.',
+    images: [
+      'https://raw.githubusercontent.com/sanekhakk/katlo-catalog-generator/main/screenshots/katlo1.webp',
+      'https://raw.githubusercontent.com/sanekhakk/katlo-catalog-generator/main/screenshots/katlo2.webp',
+      'https://raw.githubusercontent.com/sanekhakk/katlo-catalog-generator/main/screenshots/katlo3.webp',
+      'https://raw.githubusercontent.com/sanekhakk/katlo-catalog-generator/main/screenshots/katlo4.webp',
+      'https://raw.githubusercontent.com/sanekhakk/katlo-catalog-generator/main/screenshots/katlo5.webp',
+      'https://raw.githubusercontent.com/sanekhakk/katlo-catalog-generator/main/screenshots/katlo6.webp',
+      'https://raw.githubusercontent.com/sanekhakk/katlo-catalog-generator/main/screenshots/katlo7.webp',
+      'https://raw.githubusercontent.com/sanekhakk/katlo-catalog-generator/main/screenshots/katlo8.webp',
+    ],
     highlights: [
       'Reduced catalog creation time by 80% by eliminating manual formatting and streamlining distribution.',
       'Scalable business dashboard with full CRUD, secure image upload, and instant public catalog publishing.',
@@ -46,153 +58,175 @@ const PROJECTS = [
     github: 'https://github.com/sanekhakk/katlo-catalog-generator',
     accent: 'sage',
     stats: [
-      { value: '80%', label: 'Faster Catalog Creation' },
-      { value: '70%', label: 'Quicker Updates' },
-      { value: 'QR', label: 'Code Generation' },
+      { value: '80%', label: 'Time Saved' },
+      { value: '70%', label: 'Updates' },
+      { value: 'QR', label: 'Tech' },
     ],
   },
   {
     name: 'Debato AI',
-    tagline: 'Smart Helpdesk Ticketing Solution for IT Services',
+    tagline: 'AI Debate Practice Platform',
     period: 'Nov 2025 – Dec 2025',
     type: 'Full Stack · AI',
     desc: 'The purpose of Debato is to provide users with a platform where they can practice and engage in debates with an AI opponent',
+    images: [
+      'https://raw.githubusercontent.com/sanekhakk/DebatoAi/main/screenshots/landing.png'
+    ],
     highlights: [
       'AI-powered platform where users can debate with an AI opponent in a chat-style interface.',
-      'Debate setup with topic categories, subtopics, difficulty levels (Easy, Medium, Hard), and customizable debate time limits.',
-      'Reply time limit system for users (45–90 seconds depending on difficulty) with automatic win for AI if time expires',
+      'Debate setup with topic categories, subtopics, difficulty levels, and customizable time limits.',
+      'Reply time limit system for users (45–90 seconds depending on difficulty) with automatic win logic.',
       'Scoreboard and dashboard displaying AI vs User wins and debate history',
-      'Guest mode allowing one free debate, with login required for further debates.',
-      'User authentication via email and Google OAuth with a responsive web interface',
     ],
-    stack: ['Python', 'Django', 'Django REST Framework', 'JavaScript', 'Render'],
+    stack: ['Python', 'Django', 'DRF', 'JavaScript', 'Render'],
     live: 'https://debatoai.onrender.com/',
     github: 'https://github.com/sanekhakk/DebatoAi',
     accent: 'rose',
     stats: [
-      { value: '50%', label: 'Faster debate setup' },
-      { value: '55%', label: 'Higher debate engagement' },
-      { value: '100%', label: 'Secure authenticated sessions' },
+      { value: '50%', label: 'Faster Setup' },
+      { value: '55%', label: 'Engagement' },
+      { value: '100%', label: 'Secure' },
     ],
   },
-
   {
     name: 'Murmr',
-    tagline: 'Anonymous confession website',
+    tagline: 'Anonymous Confession Website',
     period: 'Nov 2025 – Dec 2025',
-    type: 'Full Stack · AI',
-    desc: 'Murmur is an Anonymous Confession is a web application designed to let users share confessions anonymously, ensuring privacy while promoting emotional expression in a secure and user-friendly environment',
+    type: 'Full Stack',
+    desc: 'Murmur is an web application designed to let users share confessions anonymously, ensuring privacy while promoting emotional expression in a secure environment.',
+    images: [
+      'https://raw.githubusercontent.com/sanekhakk/murmur-Anonymous-Confession/main/screenshots/feed.png'
+    ],
     highlights: [
-      'Anonymous platform where users can share confessions without revealing identity, with emotion-based categorization',
-      'Community interaction through an upvoting system to highlight relatable or impactful confessions.',
-      'Modern responsive UI with card-style confession feed for smooth browsing across devices.',
-      'Multi-category reporting and moderation system to manage inappropriate content.',
-      'Secure backend with Django (MVT) and deployment on Render with production-ready configuration.',
+      'Anonymous sharing without revealing identity, with emotion-based categorization.',
+      'Community interaction through an upvoting system for relateable confessions.',
+      'Modern responsive UI with card-style confession feed for smooth browsing.',
+      'Secure backend with Django (MVT) and production-ready configuration.',
     ],
     stack: ['Python', 'Django','JavaScript','SQLite', 'Render'],
     live: 'https://murmur-ovun.onrender.com/',
     github: 'https://github.com/sanekhakk/murmur-Anonymous-Confession',
     accent: 'rose',
     stats: [
-      { value: '50%', label: 'Faster debate setup' },
-      { value: '55%', label: 'Higher debate engagement' },
-      { value: '100%', label: 'Secure authenticated sessions' },
+      { value: '100%', label: 'Anonymous' },
+      { value: 'Cards', label: 'UI Style' },
+      { value: 'MVT', label: 'Pattern' },
     ],
   },
-
 ];
 
-const handleMouseMove = (e) => {
-  const { currentTarget: t, clientX: x, clientY: y } = e;
-  const r = t.getBoundingClientRect();
-  t.style.setProperty('--mx', `${x - r.left}px`);
-  t.style.setProperty('--my', `${y - r.top}px`);
-};
+function MockupCarousel({ images, accent }) {
+  const [index, setIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
 
-const LiveIcon = () => (
-  <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2">
-    <path d="M7 3H3a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2V9M10 1h5m0 0v5m0-5L8 8"/>
-  </svg>
-);
-const GithubIcon = () => (
-  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-  </svg>
-);
+  const slideVariants = {
+    enter: (direction) => ({ x: direction > 0 ? 300 : -300, opacity: 0 }),
+    center: { zIndex: 1, x: 0, opacity: 1 },
+    exit: (direction) => ({ zIndex: 0, x: direction < 0 ? 300 : -300, opacity: 0 })
+  };
+
+  const paginate = (newDirection) => {
+    setDirection(newDirection);
+    setIndex((prevIndex) => (prevIndex + newDirection + images.length) % images.length);
+  };
+
+  useEffect(() => {
+    const timer = setInterval(() => paginate(1), 5000);
+    return () => clearInterval(timer);
+  }, [index, images.length]);
+
+  return (
+    <div className={`mockup-container mockup--${accent}`}>
+      <div className="mockup-header">
+        <div className="mockup-dots"><span /><span /><span /></div>
+        <div className="mockup-address">https://sanekha.dev/project-view</div>
+      </div>
+
+      <div className="mockup-viewport">
+        <AnimatePresence initial={false} custom={direction}>
+          <motion.img
+            key={index}
+            src={images[index]}
+            custom={direction}
+            variants={slideVariants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{ x: { type: "spring", stiffness: 300, damping: 30 }, opacity: { duration: 0.3 } }}
+            className="mockup-img"
+          />
+        </AnimatePresence>
+
+        {images.length > 1 && (
+          <>
+            <button className="nav-btn prev" onClick={() => paginate(-1)} aria-label="Previous">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <button className="nav-btn next" onClick={() => paginate(1)} aria-label="Next">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+          </>
+        )}
+      </div>
+
+      <div className="mockup-indicators">
+        {images.map((_, i) => (
+          <div key={i} className={`indicator-bar ${i === index ? 'active' : ''}`} />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function Projects() {
   return (
     <div className="projects-page">
-
-      {/* Banner */}
       <section className="projects-banner">
         <div className="projects-banner-bg" aria-hidden="true">
           <div className="pbb1" /><div className="pbb2" />
         </div>
         <div className="section-header anim">
-          <p className="eyebrow">What I've built</p>
-          <h1 className="display" style={{ fontSize: 'clamp(2.8rem,5vw,5.5rem)' }}>
-            My <em>Projects</em>
-          </h1>
+          <p className="eyebrow">Portfolio</p>
+          <h1 className="display">My <em>Projects</em></h1>
           <div className="rule" />
-          <p>Full-stack applications, SaaS products, and AI-powered tools — built with care and shipped with pride.</p>
+          <p>Full-stack applications, SaaS products, and AI tools — built with care and shipped with pride.</p>
         </div>
 
-        {/* Project count strip */}
         <div className="projects-count-strip anim d3">
           <span className="pcs-num">{PROJECTS.length}</span>
-          <span className="pcs-label">Projects &amp; counting</span>
+          <span className="pcs-label">Projects</span>
           <span className="pcs-sep" />
           <span className="pcs-num">{PROJECTS.filter(p => p.featured).length}</span>
           <span className="pcs-label">Featured</span>
         </div>
       </section>
 
-      {/* All Projects — full detailed cards */}
       <section className="projects-all-section">
-        <div className="projects-full-grid">
+        <div className="projects-v3-list">
           {PROJECTS.map((p, i) => (
-            <article
-              className={`project-card project-card--${p.accent} anim`}
-              style={{ animationDelay: `${i * 0.12}s` }}
-              onMouseMove={handleMouseMove}
-              key={i}
-            >
-              {/* Mouse-track radial glow */}
-              <div className="pc-glow" aria-hidden="true" />
-
-              {/* Animated top band */}
-              <div className="pc-band" />
-
-              <div className="pc-body">
-
-                {/* Top meta row */}
-                <div className="pc-meta">
-                  <div className="pc-badges">
-                    <span className={`pc-type-badge pc-type-badge--${p.accent}`}>{p.type}</span>
-                    {p.featured && <span className="pc-featured-badge">★ Featured</span>}
-                  </div>
-                  <div className="pc-links">
-                    <a className="pc-link" href={p.live} target="_blank" rel="noopener noreferrer">
-                      <LiveIcon /> Live
-                    </a>
-                    <a className="pc-link" href={p.github} target="_blank" rel="noopener noreferrer">
-                      <GithubIcon /> GitHub
-                    </a>
-                  </div>
+            <article key={i} className={`project-v3-card project-card--${p.accent} anim`} style={{ animationDelay: `${i * 0.12}s` }}>
+              <div className="project-v3-grid">
+                <div className="project-v3-visual">
+                  {p.images && p.images.length > 0 ? (
+                    <MockupCarousel images={p.images} accent={p.accent} />
+                  ) : (
+                    <div className="empty-mockup">Preview Incoming</div>
+                  )}
                 </div>
 
-                {/* Title block */}
-                <div className="pc-title-block">
-                  <h2 className="pc-name">{p.name}</h2>
-                  <span className="pc-period">{p.period}</span>
-                </div>
+                <div className="project-v3-info">
+                  <div className="pc-meta">
+                    <div className="pc-badges">
+                      <span className={`pc-type-badge pc-type-badge--${p.accent}`}>{p.type}</span>
+                      {p.featured && <span className="pc-featured-badge">★ Featured</span>}
+                    </div>
+                    <span className="pc-period">{p.period}</span>
+                  </div>
 
-                <p className="pc-tagline">{p.tagline}</p>
-                <p className="pc-desc">{p.desc}</p>
+                  <h2 className="project-v3-title">{p.name}</h2>
+                  <p className="pc-tagline">{p.tagline}</p>
+                  <p className="project-v3-desc">{p.desc}</p>
 
-                {/* Stats grid */}
-                {p.stats && (
                   <div className="pc-stats">
                     {p.stats.map((s, j) => (
                       <div className="pc-stat" key={j}>
@@ -201,45 +235,46 @@ export default function Projects() {
                       </div>
                     ))}
                   </div>
-                )}
 
-                {/* Highlights */}
-                <ul className="pc-highlights">
-                  {p.highlights.map((h, j) => (
-                    <li className="pc-hl" key={j}>
-                      <span className={`pc-hl-dot pc-hl-dot--${p.accent}`} />
-                      {h}
-                    </li>
-                  ))}
-                </ul>
+                  <ul className="pc-highlights">
+                    {p.highlights.map((h, j) => (
+                      <li className="pc-hl" key={j}>
+                        <span className={`pc-hl-dot pc-hl-dot--${p.accent}`} />
+                        {h}
+                      </li>
+                    ))}
+                  </ul>
 
-                {/* Stack */}
-                <div className="pc-stack">
-                  {p.stack.map(s => <span className="chip" key={s}>{s}</span>)}
+                  <div className="v3-stack">
+                    {p.stack.map(s => <span key={s} className="chip">{s}</span>)}
+                  </div>
+
+                  <div className="v3-actions">
+                    <a href={p.live} target="_blank" rel="noopener noreferrer" className="v3-btn-primary">Live Demo</a>
+                    <a href={p.github} target="_blank" rel="noopener noreferrer" className="v3-btn-icon" title="View Source">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.297 24 12.017c0-6.627-5.373-12-12-12"/></svg>
+                    </a>
+                  </div>
                 </div>
-
               </div>
             </article>
           ))}
         </div>
 
-        {/* GitHub CTA */}
+        {/* Updated GitHub CTA */}
         <div className="projects-github-cta anim">
           <div className="pgc-inner">
             <div className="pgc-icon">
-              <GithubIcon />
+               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
             </div>
-            <div>
+            <div className="pgc-text">
               <p className="pgc-title">See everything on GitHub</p>
               <p className="pgc-sub">More experiments, mini-projects, and open source work live here.</p>
             </div>
-            <a href="https://github.com/sanekhakk" target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
-              View GitHub →
-            </a>
+            <a href="https://github.com/sanekhakk" target="_blank" rel="noopener noreferrer" className="btn btn-ghost">View GitHub →</a>
           </div>
         </div>
       </section>
-
     </div>
   );
 }

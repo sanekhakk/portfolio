@@ -9,6 +9,9 @@ const NAV = [
   ['/about', 'About'],
 ];
 
+// ── Replace with your actual CV/resume URL ──
+const CV_URL = '/Sanekha_KK_Resume.pdf';
+
 export default function Footer() {
   return (
     <footer className="footer">
@@ -19,6 +22,19 @@ export default function Footer() {
           <p className="footer-tagline">
             Full stack developer & coding tutor. Building elegant, AI-powered web experiences.
           </p>
+          {/* CV button in footer brand column */}
+          <a
+            href={CV_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer-cv-btn"
+          >
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M8 1v9M4 7l4 4 4-4"/>
+              <path d="M2 12v1a1 1 0 001 1h10a1 1 0 001-1v-1"/>
+            </svg>
+            View / Download CV
+          </a>
         </div>
 
         {/* Nav */}
@@ -47,7 +63,6 @@ export default function Footer() {
 
       <div className="footer-bottom">
         <span className="footer-copy">© {new Date().getFullYear()} Sanekha K K. All rights reserved.</span>
-        
       </div>
     </footer>
   );

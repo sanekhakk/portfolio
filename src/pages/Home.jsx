@@ -4,6 +4,9 @@ import profileImg from '../assets/profile.png';
 
 const DEVICON = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons';
 
+// ── Replace with your actual CV/resume URL ──
+const CV_URL = '/Sanekha_KK_Resume.pdf';
+
 const TICKER_SKILLS = [
   'React.js','Node.js','MongoDB','Express.js','Django','Python',
   'JavaScript','Java','Tailwind CSS','PostgreSQL','Firebase','REST APIs',
@@ -65,6 +68,18 @@ export default function Home() {
 
           <div className="hero-cta anim d5">
             <Link to="/projects" className="btn btn-fill">View Projects</Link>
+            <a
+              href={CV_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-cv"
+            >
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M8 1v9M4 7l4 4 4-4"/>
+                <path d="M2 12v1a1 1 0 001 1h10a1 1 0 001-1v-1"/>
+              </svg>
+              View CV
+            </a>
             <Link to="/about" className="btn btn-ghost">About Me →</Link>
           </div>
 
@@ -155,6 +170,18 @@ export default function Home() {
         </h2>
         <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
           <a href="mailto:sanekhakkclt@gmail.com" className="btn btn-fill-light">✉ Get in Touch</a>
+          <a
+            href={CV_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-cv-light"
+          >
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M8 1v9M4 7l4 4 4-4"/>
+              <path d="M2 12v1a1 1 0 001 1h10a1 1 0 001-1v-1"/>
+            </svg>
+            View CV
+          </a>
           <Link to="/projects" className="btn btn-ghost" style={{ borderColor: 'rgba(255,255,255,.25)', color: 'rgba(255,255,255,.8)' }}>
             View Projects →
           </Link>

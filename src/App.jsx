@@ -9,6 +9,7 @@ import Experience from './pages/Experience';
 import Projects from './pages/Projects';
 import About from './pages/About';
 import Certifications from './pages/Certifications';
+import Contact from './pages/Contact';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -31,6 +32,7 @@ export default function App() {
             <Route path="/projects"       element={<Projects />} />
             <Route path="/certifications" element={<Certifications />} />
             <Route path="/about"          element={<About />} />
+            <Route path="/contact"          element={<Contact />} />
           </Routes>
         </AnimatePresence>
       </main>

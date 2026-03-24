@@ -3,6 +3,25 @@ import '../styles/Experience.css';
 
 const EXPERIENCE = [
   {
+    period: 'Dec 2025 – Present',
+    year: '2025',
+    company: 'BrightChamps',
+    role: 'Coding Tutor (Contract)',
+    type: 'contract',
+    color: 'sky',
+    bullets: [
+      'Onboarded as a contract coding tutor on the BrightChamps platform, delivering live 1-on-1 coding sessions to students across age groups globally.',
+      'Teaching programming concepts, problem-solving skills, and project-based learning aligned with BrightChamps curriculum standards.',
+      'Consistently maintaining high session quality and student engagement on a professional EdTech platform.',
+    ],
+    stack: ['Python', 'Scratch', 'JavaScript', 'HTML', 'CSS'],
+    metrics: [
+      { value: 'Dec 2025', label: 'Joined' },
+      { value: 'EdTech', label: 'Industry' },
+      { value: 'Global', label: 'Student Reach' },
+    ],
+  },
+  {
     period: 'Jun 2025 – Jul 2025',
     year: '2025',
     company: 'Pinnet Info Solutions Pvt. Ltd.',
@@ -22,25 +41,7 @@ const EXPERIENCE = [
       { value: '15+', label: 'Bugs Resolved' },
     ],
   },
-  {
-    period: 'Dec 2025 – Present',
-    year: '2025',
-    company: 'BrightChamps',
-    role: 'Coding Tutor (Contract)',
-    type: 'contract',
-    color: 'sky',
-    bullets: [
-      'Onboarded as a contract coding tutor on the BrightChamps platform, delivering live 1-on-1 coding sessions to students across age groups globally.',
-      'Teaching programming concepts, problem-solving skills, and project-based learning aligned with BrightChamps curriculum standards.',
-      'Consistently maintaining high session quality and student engagement on a professional EdTech platform.',
-    ],
-    stack: ['Python', 'Scratch', 'JavaScript', 'HTML', 'CSS'],
-    metrics: [
-      { value: 'Dec 2025', label: 'Joined' },
-      { value: 'EdTech', label: 'Industry' },
-      { value: 'Global', label: 'Student Reach' },
-    ],
-  },
+  
   {
     period: 'Jul 2024 – Present',
     year: '2024',

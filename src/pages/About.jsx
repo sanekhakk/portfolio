@@ -1,193 +1,243 @@
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef, useState } from 'react';
 import '../styles/About.css';
 
-const DEVICON = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons';
+const CV_URL = '/Sanekha_KK_Resume.pdf'; 
 
-const EDUCATION = [
-  {
-    icon: '🎓',
-    degree: 'B.Tech – Computer Science & Engineering',
-    school: 'Lovely Professional University, Punjab',
-    tags: ['Aug 2023 – Present', 'CGPA: 7.77'],
-  },
-  {
-    icon: '📚',
-    degree: 'Intermediate (Class XII)',
-    school: 'GGVHSS Nadakkav, Kozhikode, Kerala',
-    tags: ['Jun 2020 – Mar 2022', '92.7%'],
-  },
-  {
-    icon: '🏫',
-    degree: 'Matriculation (ICSE – Class X)',
-    school: 'S.T Francis Higher Secondary School, Kozhikode',
-    tags: ['Jun 2019 – Mar 2020', 'Percentile: 93.8'],
-  },
+// Core technologies orbiting your initials
+const TECH_ORBITAL = [
+  { name: 'React', color: '#61dafb', x: '15%', y: '10%' },
+  { name: 'Node.js', color: '#339933', x: '80%', y: '15%' },
+  { name: 'Django', color: '#092e20', x: '10%', y: '70%' },
+  { name: 'MongoDB', color: '#47a248', x: '75%', y: '75%' },
+  { name: 'Tutor', color: '#be3d62', x: '45%', y: '85%' },
 ];
 
-const CERTS = [
-  { icon: `${DEVICON}/googlecloud/googlecloud-original.svg`, name: 'Cloud Computing', issuer: 'NPTEL', date: 'Apr 2025', isImg: true },
-  { icon: `${DEVICON}/python/python-original.svg`, name: 'Live Python Industrial Training', issuer: 'Code Sprint', date: 'Mar 2024', isImg: true },
-  { icon: `${DEVICON}/react/react-original.svg`, name: 'React Developer Internship', issuer: 'Pinnet Info Solutions Pvt. Ltd.', date: 'Jul 2025', isImg: true },
+const MILESTONES = [
+  {
+    year: '2023 – Present',
+    bgYear: '23',
+    title: 'B.Tech in Computer Science',
+    org: 'Lovely Professional University',
+    desc: 'Specializing in Full-Stack systems, AI integration, and Scalable Architecture. Building the bridge between complex backend logic and seamless frontend experiences.',
+    metric: 'CGPA: 7.77',
+    icon: '🚀'
+  },
+  {
+    year: '2020 – 2022',
+    bgYear: '20',
+    title: 'Intermediate (XII)',
+    org: 'GGVHSS Nadakkav',
+    desc: 'Specialized in Computer Science with a 92.7% score, building a rigorous foundation in core algorithms, mathematics, and logical problem-solving.',
+    metric: 'Score: 92.7%',
+    icon: '📈'
+  }
 ];
 
-const TRAITS = [
-  { emoji: '💡', title: 'Problem Solver', desc: 'Breaking complex problems into elegant, efficient solutions.' },
-  { emoji: '🎓', title: 'Mentor & Educator', desc: 'Teaching coding to 100+ students — I believe in lifting others as I grow.' },
-  { emoji: '🤖', title: 'AI Enthusiast', desc: 'Integrating AI to make software smarter and more impactful.' },
-  { emoji: '🌸', title: 'Detail Oriented', desc: 'Clean UI, clean code — I care deeply about craft at every level.' },
-];
-
-const TECH_LOGOS = [
-  { src: `${DEVICON}/react/react-original.svg`, label: 'React' },
-  { src: `${DEVICON}/nodejs/nodejs-original.svg`, label: 'Node.js' },
-  { src: `${DEVICON}/python/python-original.svg`, label: 'Python' },
-  { src: `${DEVICON}/django/django-plain.svg`, label: 'Django' },
-  { src: `${DEVICON}/mongodb/mongodb-original.svg`, label: 'MongoDB' },
-  { src: `${DEVICON}/javascript/javascript-original.svg`, label: 'JS' },
+const HOBBIES = [
+  {
+    title: 'Open Source',
+    desc: 'Studying robust GitHub repos to master state management and security in large-scale applications.',
+    icon: '🐙',
+    img: 'https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?q=80&w=600&auto=format&fit=crop'
+  },
+  {
+    title: 'UI Experimenting',
+    desc: 'Crafting fluid micro-interactions in Framer and Figma to make the web feel alive and human.',
+    icon: '✨',
+    img: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=600&auto=format&fit=crop'
+  },
+  {
+    title: 'Tech Mentoring',
+    desc: 'Teaching coding to 100+ students because explaining code is the absolute best way to master it.',
+    icon: '💡',
+    img: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=600&auto=format&fit=crop'
+  }
 ];
 
 export default function About() {
+  const containerRef = useRef(null);
+  const { scrollY } = useScroll();
+  
+  // Parallax effects for different depths
+  const y1 = useTransform(scrollY, [0, 500], [0, 200]);
+  const y2 = useTransform(scrollY, [0, 500], [0, -150]);
+
   return (
-    <div className="about-page">
+    <div className="about-page-unique" ref={containerRef}>
+      {/* Background Kinetic Typography for unique branding */}
+      <motion.div style={{ y: y1 }} className="kinetic-bg-about">
+        CREATIVE FULL-STACK MENTOR
+      </motion.div>
 
-      {/* Hero */}
-      <section className="about-hero">
-        <div className="about-hero-bg" aria-hidden="true">
-          <div className="ahb1" /><div className="ahb2" />
+      {/* Hero Section: Storytelling Layout */}
+      <section className="about-hero-unique">
+        <div className="hero-content-left anim">
+          <p className="eyebrow">The Developer Behind the Screen</p>
+          <h1 className="hero-title-unique">Building <em>Digital</em> Architecture</h1>
+          
+          <div className="hero-bio-container">
+            <p className="hero-description-unique">
+              I am <strong>Sanekha K K</strong>. I do not just write code; I design systems. 
+              As a student at LPU, I have dedicated myself to mastering the MERN stack 
+              and Django to solve real-world problems with high-performance logic.
+            </p>
+            <p className="hero-description-unique">
+              Beyond building scalable web applications, I have a strong focus on <strong>AI integrations</strong> and <strong>technical mentoring</strong>. I believe that crafting intuitive user experiences and writing clean, maintainable backend code must go hand in hand.
+            </p>
+          </div>
+
+          {/* NEW: Key Pillars to fill the space nicely */}
+          <div className="hero-pillars-unique anim d2">
+            <div className="hero-pillar-item">
+              <span className="hero-pillar-icon">✦</span> Clean Architecture
+            </div>
+            <div className="hero-pillar-item">
+              <span className="hero-pillar-icon">✦</span> AI-Powered Solutions
+            </div>
+            <div className="hero-pillar-item">
+              <span className="hero-pillar-icon">✦</span> Intuitive UX
+            </div>
+            <div className="hero-pillar-item">
+              <span className="hero-pillar-icon">✦</span> Tech Mentorship
+            </div>
+          </div>
+
+          <div className="about-actions-unique anim d3">
+            <a href={CV_URL} target="_blank" rel="noopener noreferrer" className="btn-main">Download Dossier</a>
+            <a href="https://linkedin.com/in/sanekhakk" target="_blank" rel="noopener noreferrer" className="btn-link">The Story →</a>
+          </div>
         </div>
-
-        <div className="about-hero-inner">
-          {/* Photo column */}
-          <div className="about-photo-col anim">
-            <div className="about-photo-frame">
-              <span className="about-photo-init">SK</span>
-              {/* Floating tech logos */}
-              <div className="about-tech-orbit">
-                {TECH_LOGOS.map((t, i) => (
-                  <div
-                    key={t.label}
-                    className="about-tech-orb"
-                    style={{ '--orb-i': i, '--orb-total': TECH_LOGOS.length }}
-                  >
-                    <img src={t.src} alt={t.label} />
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="about-accent-pill">
-              <div className="pill-item">
-                <div className="pill-num">20+</div>
-                <div className="pill-label">Students<br />Mentored</div>
-              </div>
-              <div className="pill-sep" />
-              <div className="pill-item">
-                <div className="pill-num">10+</div>
-                <div className="pill-label">Projects<br />Shipped</div>
-              </div>
-              <div className="pill-sep" />
-              <div className="pill-item">
-                <div className="pill-num">2+</div>
-                <div className="pill-label">Years<br />Experience</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Text column */}
-          <div className="about-text-col">
-            <p className="eyebrow anim" style={{ justifyContent: 'flex-start' }}>About Me</p>
-            <h1 className="about-heading anim d1">
-              Crafting code<br />with <em>intention</em>
-            </h1>
-            <p className="about-para anim d2">
-              Hi! I'm <strong>Sanekha K K</strong> — a Computer Science student at Lovely Professional University. I'm a full-stack developer who loves turning ideas into
-              real, working products.
-            </p>
-            <p className="about-para anim d2">
-              My stack spans the <strong>MERN ecosystem</strong> and <strong>Django</strong>, with a growing
-              love for <strong>AI integrations</strong>. Whether it's an intelligent helpdesk or a catalog SaaS,
-              I focus on clean architecture, great UX, and shipping things that actually work.
-            </p>
-            <p className="about-para anim d2">
-              Beyond building, I've been a <strong>coding tutor</strong> for 20+ students — teaching Python, Java,
-              Scratch and more. Watching a student's eyes light up when code runs for the first time? That never gets old.
-            </p>
-
-            <div className="divider anim d3" />
-
-            <div className="about-traits anim d3">
-              {TRAITS.map(({ emoji, title, desc }) => (
-                <div className="trait" key={title}>
-                  <div className="trait-icon">{emoji}</div>
-                  <div className="trait-text">
-                    <h4>{title}</h4>
-                    <p>{desc}</p>
-                  </div>
-                </div>
-              ))}
+        
+        <div className="hero-visual-right anim d2">
+          {/* Parallax Orbit Container */}
+          <motion.div style={{ y: y2 }} className="orbit-container-about">
+            
+            {/* The Central "Core" - Minimalist SK */}
+            <div className="central-core-about">
+              <span className="core-initials-about">SK</span>
+              <div className="core-pulse-about" />
             </div>
 
-            <div className="anim d4" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-              <a href="mailto:sanekhakkclt@gmail.com" className="btn btn-fill">✉ Get in Touch</a>
-              <a href="https://www.linkedin.com/in/sanekhakk" target="_blank" rel="noopener noreferrer" className="btn btn-ghost">LinkedIn →</a>
-            </div>
-          </div>
+            {/* Floating Tech Orbitals */}
+            {TECH_ORBITAL.map((tech, i) => (
+              <motion.div
+                key={tech.name}
+                className="orbit-item-about"
+                style={{ 
+                  left: tech.x, 
+                  top: tech.y,
+                  '--glow-color': tech.color 
+                }}
+                animate={{
+                  y: [0, -15, 0],
+                }}
+                transition={{
+                  duration: 3 + i,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              >
+                {tech.name}
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
-      {/* Education */}
-      <section className="edu-section">
-        <div className="edu-bg" aria-hidden="true" />
-        <div className="section-header anim">
-          <p className="eyebrow">Academic Background</p>
-          <h2 className="display" style={{ fontSize: 'clamp(2rem,3.5vw,3rem)' }}>
-            Education &amp; <em>Qualifications</em>
-          </h2>
-          <div className="rule" />
-        </div>
-        <div className="edu-list">
-          {EDUCATION.map(({ icon, degree, school, tags }, i) => (
-            <div className="edu-card anim" style={{ animationDelay: `${i * 0.12}s` }} key={degree}>
-              <div className="edu-ico">{icon}</div>
-              <div className="edu-content">
-                <div className="edu-degree">{degree}</div>
-                <div className="edu-school">{school}</div>
-                <div className="edu-tags">
-                  {tags.map(t => <span className="edu-tag" key={t}>{t}</span>)}
+      {/* ─── ENHANCED: STICKY STACKING BLUEPRINT (Academic Milestones) ─── */}
+      <section className="v5-blueprint-section">
+        <div className="v5-blueprint-container">
+          
+          {/* Pinned Left Side */}
+          <div className="v5-sticky-left anim">
+            <h2 className="v5-section-title">The <br/><em>Blueprint</em></h2>
+            <p className="v5-section-desc">The academic milestones that shaped my technical foundation, forged my logic, and built my engineering mindset.</p>
+            <div className="v5-scroll-indicator">
+              <div className="v5-scroll-dot" />
+              <span>Scroll to unfold</span>
+            </div>
+          </div>
+
+          {/* Scrolling & Stacking Right Side */}
+          <div className="v5-scroll-right-stacked anim d2">
+            {MILESTONES.map((m, i) => (
+              <div 
+                key={i} 
+                className="v5-stacked-card"
+                style={{ top: `calc(120px + ${i * 20}px)`, zIndex: i + 1 }}
+              >
+                {/* Giant watermark number in background */}
+                <div className="v5-stacked-watermark">{m.bgYear}</div>
+                
+                <div className="v5-stacked-content">
+                  <div className="v5-milestone-header">
+                    <span className="v5-year-badge">{m.year}</span>
+                    <span className="v5-metric">{m.metric}</span>
+                  </div>
+                  
+                  <div className="v5-stacked-main">
+                    <div className="v5-stacked-icon">{m.icon}</div>
+                    <div>
+                      <h3>{m.title}</h3>
+                      <h4 className="v5-org">{m.org}</h4>
+                    </div>
+                  </div>
+                  
+                  <p className="v5-stacked-desc">{m.desc}</p>
                 </div>
               </div>
-              <div className="edu-arrow">→</div>
+            ))}
+          </div>
+          
+        </div>
+      </section>
+
+      {/* ─── 3D Flip Card Fan (Hobbies) ─── */}
+      <section className="hobbies-section-unique">
+        <div className="section-header text-center anim">
+          <p className="eyebrow">Beyond the IDE</p>
+          <h2 className="display-mid-unique">Digital <em>Alter-Egos</em></h2>
+          <p className="hobbies-sub-unique">What I do when my code is finally building...</p>
+        </div>
+
+        <div className="hobbies-fan-spread anim d2">
+          {HOBBIES.map((h, i) => (
+            <div key={i} className="hobby-fan-card">
+              <div className="hobby-flip-inner">
+                
+                {/* Front Face */}
+                <div className="hobby-flip-front" style={{ backgroundImage: `url(${h.img})` }}>
+                  <div className="hobby-flip-overlay"></div>
+                  <div className="hobby-flip-front-content">
+                    <div className="hobby-flip-icon">{h.icon}</div>
+                    <h3>{h.title}</h3>
+                  </div>
+                </div>
+
+                {/* Back Face */}
+                <div className="hobby-flip-back">
+                  <h3>{h.title}</h3>
+                  <div className="hobby-flip-divider" />
+                  <p>{h.desc}</p>
+                </div>
+
+              </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Certificates */}
-      <section className="certs-section">
-        <div className="section-header anim">
-          <p className="eyebrow">Credentials</p>
-          <h2 className="display" style={{ fontSize: 'clamp(2rem,3.5vw,3rem)' }}>
-            Certificates &amp; <em>Training</em>
-          </h2>
-          <div className="rule" />
-        </div>
-        <div className="certs-grid">
-          {CERTS.map(({ icon, name, issuer, date, isImg }, i) => (
-            <div className="cert-card anim" style={{ animationDelay: `${i * 0.1}s` }} key={name}>
-              <div className="cert-ico">
-                {isImg
-                  ? <img src={icon} alt={name} />
-                  : icon
-                }
-              </div>
-              <div>
-                <div className="cert-name">{name}</div>
-                <div className="cert-issuer">{issuer}</div>
-                <div className="cert-date">{date}</div>
-              </div>
-            </div>
-          ))}
+      {/* ─── Advanced Glowing CTA ─── */}
+      <section className="about-footer-cta-unique anim">
+        <div className="cta-glow-wrapper">
+          <div className="cta-unique-card">
+            <h2>Ready to start a <em>conversation?</em></h2>
+            <p>Whether it is a project inquiry or just a tech chat, my inbox is always open.</p>
+            <a href="mailto:sanekhakkclt@gmail.com" className="btn-main">Let's Connect</a>
+          </div>
         </div>
       </section>
-
     </div>
   );
 }
