@@ -1,6 +1,46 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import '../styles/Projects.css';
+import Katlo1 from "../assets/screenshots/katlo1.webp";
+import Katlo2 from "../assets/screenshots/katlo2.webp";
+import Katlo3 from "../assets/screenshots/katlo3.webp";
+import Katlo4 from "../assets/screenshots/katlo4.webp";
+import Katlo5 from "../assets/screenshots/katlo5.webp";
+import Katlo6 from "../assets/screenshots/katlo6.webp";
+import Katlo7 from "../assets/screenshots/katlo7.webp";
+import Katlo8 from "../assets/screenshots/katlo8.webp";
+
+import debato1 from "../assets/screenshots/debato1.webp";
+import debato2 from "../assets/screenshots/debato2.webp";
+import debato3 from "../assets/screenshots/debato3.webp";
+import debato4 from "../assets/screenshots/debato4.webp";
+import debato5 from "../assets/screenshots/debato5.webp";
+import debato6 from "../assets/screenshots/debato6.webp";
+import debato7 from "../assets/screenshots/debato7.webp";
+import debato8 from "../assets/screenshots/debato8.webp";
+import debato9 from "../assets/screenshots/debato9.webp";
+import debato10 from "../assets/screenshots/debato10.webp";
+import debato11 from "../assets/screenshots/debato11.webp";
+
+import murmur1 from "../assets/screenshots/murmu1.webp";
+import murmur2 from "../assets/screenshots/murmu2.webp";
+
+import sd1 from "../assets/screenshots/smartdesk1.webp";
+import sd2 from "../assets/screenshots/smartdesk2.webp";
+import sd3 from "../assets/screenshots/smartdesk3.webp";
+import sd4 from "../assets/screenshots/smartdesk4.webp";
+import sd5 from "../assets/screenshots/smartdesk5.webp";
+import sd6 from "../assets/screenshots/smartdesk6.webp";
+import sd7 from "../assets/screenshots/smartdesk7.webp";
+import sd8 from "../assets/screenshots/smartdesk8.webp";
+import sd9 from "../assets/screenshots/smartdesk9.webp";
+import sd10 from "../assets/screenshots/smartdesk10.webp";
+import sd11 from "../assets/screenshots/smartdesk11.webp";
+import sd12 from "../assets/screenshots/smartdesk12.webp";
+import sd13 from "../assets/screenshots/smartdesk13.webp";
+import sd14 from "../assets/screenshots/smartdesk14.webp";
+import sd15 from "../assets/screenshots/smartdesk15.webp";
+import sd16 from "../assets/screenshots/smartdesk16.webp";
 
 const PROJECTS = [
   {
@@ -11,8 +51,22 @@ const PROJECTS = [
     featured: true,
     desc: 'An AI-powered helpdesk platform that automatically analyzes, categorizes, and routes incoming IT support tickets using Gemini 2.0 Flash — dramatically reducing manual triage time.',
     images: [
-      'https://raw.githubusercontent.com/sanekhakk/Smart-Helpdesk-Ticketing-Solution-for-IT-Services/main/screenshots/dash.png',
-      'https://raw.githubusercontent.com/sanekhakk/Smart-Helpdesk-Ticketing-Solution-for-IT-Services/main/screenshots/admin.png'
+      sd1,
+      sd2,
+      sd3,
+      sd4,
+      sd5,
+      sd6,
+      sd7,
+      sd8,
+      sd9,
+      sd10,
+      sd11,
+      sd12,
+      sd13,
+      sd14,
+      sd15,
+      sd16
     ],
     highlights: [
       'Dual-portal system with user dashboard and secure admin console for structured workflow management.',
@@ -38,11 +92,15 @@ const PROJECTS = [
     featured: true,
     desc: 'A Django-based SaaS platform that enables small businesses to auto-generate WhatsApp-compatible product catalogs with sharable URLs and dynamic QR codes for seamless digital distribution.',
     images: [
-      'https://github.com/sanekhakk/portfolio/blob/81337ae09758fd79421609a320547fbe558b686d/screenshots/katlo1.webp',
-      '/projects/katlo1.webp',
-      '/projects/katlo1.webp',
-      '/projects/katlo1.webp',
-      ],
+      Katlo1,
+      Katlo2,
+      Katlo3,
+      Katlo4,
+      Katlo5,
+      Katlo6,
+      Katlo7,
+      Katlo8
+    ],
     highlights: [
       'Reduced catalog creation time by 80% by eliminating manual formatting and streamlining distribution.',
       'Scalable business dashboard with full CRUD, secure image upload, and instant public catalog publishing.',
@@ -66,7 +124,17 @@ const PROJECTS = [
     type: 'Full Stack · AI',
     desc: 'The purpose of Debato is to provide users with a platform where they can practice and engage in debates with an AI opponent',
     images: [
-      'https://raw.githubusercontent.com/sanekhakk/DebatoAi/main/screenshots/landing.png'
+      debato1,
+      debato2,
+      debato3,
+      debato4,
+      debato5,
+      debato6,
+      debato7,
+      debato8,
+      debato9,
+      debato10,
+      debato11,
     ],
     highlights: [
       'AI-powered platform where users can debate with an AI opponent in a chat-style interface.',
@@ -91,7 +159,8 @@ const PROJECTS = [
     type: 'Full Stack',
     desc: 'Murmur is an web application designed to let users share confessions anonymously, ensuring privacy while promoting emotional expression in a secure environment.',
     images: [
-      'https://raw.githubusercontent.com/sanekhakk/murmur-Anonymous-Confession/main/screenshots/feed.png'
+      murmur1,
+      murmur2
     ],
     highlights: [
       'Anonymous sharing without revealing identity, with emotion-based categorization.',
