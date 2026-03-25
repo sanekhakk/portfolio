@@ -96,3 +96,33 @@
   .project-v3-info { padding: 3.5rem 2.5rem; }
   .pgc-inner { flex-direction: column; text-align: center; }
 }
+
+.mockup-viewport {
+  position: relative !important;
+  aspect-ratio: unset !important;
+  height: 340px !important;
+  background: #f0f0f0 !important;
+  overflow: hidden;
+}
+ 
+/* Image fills the box, cropped from top */
+.mockup-img {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: top center !important;
+}
+ 
+/* Mobile: shorter fixed height */
+@media (max-width: 1100px) {
+  .mockup-viewport { height: 280px !important; }
+}
+@media (max-width: 768px) {
+  .mockup-viewport { height: 220px !important; }
+}
+@media (max-width: 480px) {
+  .mockup-viewport { height: 180px !important; }
+}

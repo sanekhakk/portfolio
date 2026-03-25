@@ -160,4 +160,3 @@ button { font-family: var(--sans); cursor: pointer; border: none; background: no
   -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
 }
 
-@import './mobile-fixes.css';
