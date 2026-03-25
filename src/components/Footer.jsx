@@ -10,7 +10,7 @@ const NAV = [
 ];
 
 // ── Replace with your actual CV/resume URL ──
-const CV_URL = '/Sanekha_KK_Resume.pdf';
+const CV_URL = 'https://drive.google.com/file/d/12UZk9jtqPxFpATvYHSe4qXv9NR5Vcmz2/view?usp=sharing';
 
 export default function Footer() {
   return (

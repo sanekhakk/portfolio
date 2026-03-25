@@ -1,161 +1,154 @@
 import { useState, useEffect, useRef } from 'react';
 import '../styles/Skills.css';
 
-const DEVICON_CDN = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons';
+const CDN = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons';
 
-const CATEGORIES = {
-  All: 'All Tech',
-  Languages: 'Core Languages',
-  Frontend: 'Client Side',
-  Backend: 'Server & Logic',
-  Databases: 'Data Storage',
+const CATEGORY_META = {
+  Languages: { color: '#be3d62', bg: 'var(--rose-50)' },
+  Frontend:  { color: '#2e7abf', bg: '#edf4fc' },
+  Backend:   { color: '#3a6e50', bg: '#edf5f0' },
+  Databases: { color: '#7a5020', bg: '#faf2e8' },
 };
 
 const SKILLS = [
-  { icon: `${DEVICON_CDN}/java/java-original.svg`,           name: 'Java',         type: 'Languages', level: 90, note: 'Major', color: '#f89820' },
-  { icon: `${DEVICON_CDN}/python/python-original.svg`,       name: 'Python',       type: 'Languages', level: 85, color: '#3776ab' },
-  { icon: `${DEVICON_CDN}/javascript/javascript-original.svg`,name: 'JavaScript',  type: 'Languages', level: 88, note: 'ES6+', color: '#f7df1e' },
-  { icon: `${DEVICON_CDN}/html5/html5-original.svg`,         name: 'HTML5',        type: 'Languages', level: 95, color: '#e34f26' },
-  { icon: `${DEVICON_CDN}/css3/css3-original.svg`,           name: 'CSS3',         type: 'Languages', level: 90, color: '#1572b6' },
-  { icon: `${DEVICON_CDN}/react/react-original.svg`,         name: 'React.js',     type: 'Frontend',  level: 88, color: '#61dafb' },
-  { icon: `${DEVICON_CDN}/tailwindcss/tailwindcss-original.svg`, name: 'Tailwind CSS', type: 'Frontend', level: 85, color: '#06b6d4' },
-  { icon: `${DEVICON_CDN}/nodejs/nodejs-original.svg`,       name: 'Node.js',      type: 'Backend',   level: 82, color: '#339933' },
-  { icon: `${DEVICON_CDN}/express/express-original.svg`,     name: 'Express.js',   type: 'Backend',   level: 80, color: '#000000' },
-  { icon: `${DEVICON_CDN}/django/django-plain.svg`,          name: 'Django',       type: 'Backend',   level: 78, color: '#092e20' },
-  { icon: `${DEVICON_CDN}/fastapi/fastapi-original.svg`,     name: 'REST APIs',    type: 'Backend',   level: 85, color: '#05998b' },
-  { icon: `${DEVICON_CDN}/mongodb/mongodb-original.svg`,     name: 'MongoDB',      type: 'Databases', level: 82, color: '#47a248' },
-  { icon: `${DEVICON_CDN}/postgresql/postgresql-original.svg`,name: 'PostgreSQL',  type: 'Databases', level: 75, color: '#4169e1' },
-  { icon: `${DEVICON_CDN}/mysql/mysql-original.svg`,         name: 'MySQL',        type: 'Databases', level: 75, color: '#4479a1' },
-  { icon: `${DEVICON_CDN}/sqlite/sqlite-original.svg`,       name: 'SQLite',       type: 'Databases', level: 78, color: '#003b57' },
+  { icon: `${CDN}/java/java-original.svg`,             name: 'Java',        type: 'Languages', level: 90, note: 'Major',  color: '#f89820' },
+  { icon: `${CDN}/python/python-original.svg`,         name: 'Python',      type: 'Languages', level: 85,                 color: '#3776ab' },
+  { icon: `${CDN}/javascript/javascript-original.svg`, name: 'JavaScript',  type: 'Languages', level: 88, note: 'ES6+',   color: '#f0c400' },
+  { icon: `${CDN}/html5/html5-original.svg`,           name: 'HTML5',       type: 'Languages', level: 95,                 color: '#e34f26' },
+  { icon: `${CDN}/css3/css3-original.svg`,             name: 'CSS3',        type: 'Languages', level: 90,                 color: '#1572b6' },
+  { icon: `${CDN}/react/react-original.svg`,           name: 'React.js',    type: 'Frontend',  level: 88,                 color: '#61dafb' },
+  { icon: `${CDN}/tailwindcss/tailwindcss-original.svg`, name: 'Tailwind', type: 'Frontend',  level: 85,                 color: '#06b6d4' },
+  { icon: `${CDN}/nodejs/nodejs-original.svg`,         name: 'Node.js',     type: 'Backend',   level: 82,                 color: '#339933' },
+  { icon: `${CDN}/express/express-original.svg`,       name: 'Express.js',  type: 'Backend',   level: 80,                 color: '#888888' },
+  { icon: `${CDN}/django/django-plain.svg`,            name: 'Django',      type: 'Backend',   level: 78,                 color: '#44b78b' },
+  { icon: `${CDN}/fastapi/fastapi-original.svg`,       name: 'REST APIs',   type: 'Backend',   level: 85,                 color: '#05998b' },
+  { icon: `${CDN}/mongodb/mongodb-original.svg`,       name: 'MongoDB',     type: 'Databases', level: 82,                 color: '#47a248' },
+  { icon: `${CDN}/postgresql/postgresql-original.svg`, name: 'PostgreSQL',  type: 'Databases', level: 75,                 color: '#4169e1' },
+  { icon: `${CDN}/mysql/mysql-original.svg`,           name: 'MySQL',       type: 'Databases', level: 75,                 color: '#4479a1' },
+  { icon: `${CDN}/sqlite/sqlite-original.svg`,         name: 'SQLite',      type: 'Databases', level: 78,                 color: '#5b9bd5' },
 ];
 
 const TOOLS = [
-  { icon: `${DEVICON_CDN}/git/git-original.svg`,             name: 'Git' },
-  { icon: `${DEVICON_CDN}/github/github-original.svg`,       name: 'GitHub' },
-  { icon: `${DEVICON_CDN}/vscode/vscode-original.svg`,       name: 'VS Code' },
-  { icon: `${DEVICON_CDN}/firebase/firebase-original.svg`,   name: 'Firebase' },
-  { icon: `${DEVICON_CDN}/postman/postman-original.svg`,     name: 'Postman' },
-  { icon: `${DEVICON_CDN}/vercel/vercel-original.svg`,       name: 'Vercel' },
-  { icon: `${DEVICON_CDN}/figma/figma-original.svg`,         name: 'Figma' },
-  { icon: `${DEVICON_CDN}/linux/linux-original.svg`,         name: 'Linux' },
+  { icon: `${CDN}/git/git-original.svg`,       name: 'Git' },
+  { icon: `${CDN}/github/github-original.svg`, name: 'GitHub' },
+  { icon: `${CDN}/vscode/vscode-original.svg`, name: 'VS Code' },
+  { icon: `${CDN}/firebase/firebase-original.svg`, name: 'Firebase' },
+  { icon: `${CDN}/postman/postman-original.svg`,   name: 'Postman' },
+  { icon: `${CDN}/vercel/vercel-original.svg`,     name: 'Vercel' },
+  { icon: `${CDN}/figma/figma-original.svg`,       name: 'Figma' },
+  { icon: `${CDN}/linux/linux-original.svg`,       name: 'Linux' },
 ];
 
-function SkillCard({ icon, name, level, note, color, index }) {
-  const cardRef = useRef(null);
+// circumference = 2π × 30 = 188.5
+const CIRC = 188.5;
+
+function SkillCard({ icon, name, level, note, color }) {
+  const ref = useRef(null);
   const [animated, setAnimated] = useState(false);
+  const dashOffset = CIRC - (level / 100) * CIRC;
 
   useEffect(() => {
     const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setAnimated(true); },
-      { threshold: 0.1 }
+      ([e]) => { if (e.isIntersecting) setAnimated(true); },
+      { threshold: 0.15 }
     );
-    if (cardRef.current) obs.observe(cardRef.current);
+    if (ref.current) obs.observe(ref.current);
     return () => obs.disconnect();
   }, []);
 
-  // 3D Tilt Effect
-  const handleMouseMove = (e) => {
-    const card = cardRef.current;
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    const rotateX = (y - centerY) / 10;
-    const rotateY = (centerX - x) / 10;
-    
-    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
-    card.style.setProperty('--glow-x', `${x}px`);
-    card.style.setProperty('--glow-y', `${y}px`);
-  };
-
-  const handleMouseLeave = () => {
-    cardRef.current.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)`;
-  };
-
   return (
-    <div 
-      className={`skill-card-adv anim d${(index % 6) + 1}`} 
-      ref={cardRef}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{ '--skill-color': color }}
-    >
-      <div className="skill-card-glow" />
-      <div className="skill-icon-box">
-        <img src={icon} alt={name} loading="lazy" />
-      </div>
-      <div className="skill-info">
-        <h3 className="skill-name-adv">{name} {note && <span>{note}</span>}</h3>
-        <div className="skill-progress-wrapper">
-          <div className="skill-progress-bar">
-            <div 
-              className={`skill-progress-fill ${animated ? 'active' : ''}`} 
-              style={{ '--width': `${level}%` }}
-            />
-          </div>
-          <span className="skill-perc">{level}%</span>
+    <div className="skill-icon-card" ref={ref}>
+      <div className="skill-ring-wrap">
+        <svg className="skill-ring-svg" viewBox="0 0 72 72">
+          <circle className="skill-ring-track" cx="36" cy="36" r="30" />
+          <circle
+            className={`skill-ring-fill ${animated ? 'animated' : ''}`}
+            cx="36" cy="36" r="30"
+            stroke={color}
+            style={{ '--dash-offset': `${dashOffset}` }}
+          />
+        </svg>
+        <div className="skill-ring-inner">
+          <img src={icon} alt={name} loading="lazy" />
         </div>
       </div>
+      <span className="skill-card-name">{name}</span>
+      {note && <span className="skill-card-note">{note}</span>}
+      <span className="skill-card-perc">{level}%</span>
     </div>
   );
 }
 
 export default function Skills() {
-  const [active, setActive] = useState('All');
-  const filtered = active === 'All' ? SKILLS : SKILLS.filter(s => s.type === active);
+  const grouped = {};
+  SKILLS.forEach(s => {
+    if (!grouped[s.type]) grouped[s.type] = [];
+    grouped[s.type].push(s);
+  });
 
   return (
-    <div className="skills-page-adv">
-      {/* Dynamic Background Elements */}
-      <div className="skills-bg-blobs">
-        <div className="blob-1" />
-        <div className="blob-2" />
-      </div>
+    <div className="skills-page">
 
-      <section className="skills-hero-adv">
+      {/* ── Banner ── */}
+      <section className="skills-banner">
         <div className="section-header anim">
           <p className="eyebrow">Expertise</p>
-          <h1 className="display-large">Technical <em>Arsenal</em></h1>
-          <div className="rule-center" />
-          <p className="hero-subtext">A collection of technologies I use to bring digital visions to life, categorized by domain.</p>
+          <h1 className="display">Technical <em>Arsenal</em></h1>
+          <div className="rule" />
+          <p>Technologies I command — grouped by domain, each with a proficiency ring.</p>
         </div>
-
-        <div className="skills-filter-nav anim d2">
-          {Object.entries(CATEGORIES).map(([key, label]) => (
-            <button
-              key={key}
-              className={`filter-pill ${active === key ? 'active' : ''}`}
-              onClick={() => setActive(key)}
-            >
-              {label}
-            </button>
-          ))}
+        <div className="skills-count-strip anim d3">
+          <span className="scs-num">{SKILLS.length}</span>
+          <span className="scs-label">Skills</span>
+          <span className="scs-sep" />
+          <span className="scs-num">{TOOLS.length}</span>
+          <span className="scs-label">Tools</span>
+          <span className="scs-sep" />
+          <span className="scs-num">{Object.keys(grouped).length}</span>
+          <span className="scs-label">Domains</span>
         </div>
       </section>
 
-      <main className="skills-container">
-        <div className="skills-masonry">
-          {filtered.map((skill, i) => (
-            <SkillCard key={skill.name} {...skill} index={i} />
-          ))}
-        </div>
-      </main>
-
-      <section className="tools-section-adv">
-        <div className="section-header anim">
-          <h2 className="display">Workflows & <em>Tools</em></h2>
-          <div className="rule-center" />
-        </div>
-        <div className="tools-grid-adv anim d3">
-          {TOOLS.map((tool) => (
-            <div className="tool-card-adv" key={tool.name}>
-              <img src={tool.icon} alt={tool.name} />
-              <span>{tool.name}</span>
+      {/* ── Skill Categories ── */}
+      <div className="skills-body">
+        {Object.entries(grouped).map(([cat, skills], ci) => {
+          const meta = CATEGORY_META[cat] || { color: 'var(--rose-500)', bg: 'var(--rose-50)' };
+          return (
+            <div key={cat} className={`skills-category-block anim d${ci + 1}`}>
+              <div className="scb-header">
+                <div className="scb-pill">
+                  <span className="scb-pill-dot" style={{ background: meta.color }} />
+                  <span className="scb-pill-label">{cat}</span>
+                </div>
+                <div className="scb-line" />
+                <span className="scb-count">{skills.length} technologies</span>
+              </div>
+              <div className="skills-icon-grid">
+                {skills.map(s => <SkillCard key={s.name} {...s} />)}
+              </div>
             </div>
-          ))}
+          );
+        })}
+      </div>
+
+      {/* ── Tools ── */}
+      <section className="skills-tools-section">
+        <div className="section-header anim">
+          <h2 className="display">Workflows &amp; <em>Tools</em></h2>
+          <div className="rule-center" />
+        </div>
+        <div className="tools-marquee-wrap anim d2">
+          <div className="tools-marquee-track">
+            {[...TOOLS, ...TOOLS].map((tool, i) => (
+              <div className="tool-icon-card" key={i}>
+                <img src={tool.icon} alt={tool.name} />
+                <span>{tool.name}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
+
     </div>
   );
 }

@@ -36,21 +36,21 @@ const MILESTONES = [
 
 const HOBBIES = [
   {
-    title: 'Open Source',
-    desc: 'Studying robust GitHub repos to master state management and security in large-scale applications.',
-    icon: '🐙',
+    title: 'Startup Ideas',
+    desc: 'Exploring real-world problems and shaping them into SaaS ideas, focusing on scalability, usability, and meaningful impact.',
+    icon: '💡',
     img: 'https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?q=80&w=600&auto=format&fit=crop'
   },
   {
-    title: 'UI Experimenting',
-    desc: 'Crafting fluid micro-interactions in Framer and Figma to make the web feel alive and human.',
+    title: 'UI Experiments',
+    desc: 'Designing clean, aesthetic interfaces and experimenting with layouts, interactions, and visual styles to create intuitive user experiences.',
     icon: '✨',
     img: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=600&auto=format&fit=crop'
   },
   {
     title: 'Tech Mentoring',
-    desc: 'Teaching coding to 100+ students because explaining code is the absolute best way to master it.',
-    icon: '💡',
+    desc: 'Teaching coding to 20+ students because explaining code is the absolute best way to master it.',
+    icon: '💻',
     img: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=600&auto=format&fit=crop'
   }
 ];
@@ -78,13 +78,15 @@ export default function About() {
           
           <div className="hero-bio-container">
             <p className="hero-description-unique">
-              I am <strong>Sanekha K K</strong>. I do not just write code; I design systems. 
-              As a student at LPU, I have dedicated myself to mastering the MERN stack 
+              I am <strong>Sanekha K K</strong>.I enjoy building things that actually work — not just writing code, but creating complete web applications from idea to execution.
+              I have dedicated myself to mastering the MERN stack 
               and Django to solve real-world problems with high-performance logic.
             </p>
             <p className="hero-description-unique">
-              Beyond building scalable web applications, I have a strong focus on <strong>AI integrations</strong> and <strong>technical mentoring</strong>. I believe that crafting intuitive user experiences and writing clean, maintainable backend code must go hand in hand.
-            </p>
+              Alongside building web applications, I spend a big part of my time <strong>teaching.</strong>
+ <br></br>I enjoy breaking down complex concepts into simple ideas and helping students build confidence in tech.
+
+Being a tutor has shaped the way I code — I focus on clarity, structure, and writing logic that’s easy to understand, not just functional.</p>
           </div>
 
           {/* NEW: Key Pillars to fill the space nicely */}
@@ -104,9 +106,8 @@ export default function About() {
           </div>
 
           <div className="about-actions-unique anim d3">
-            <a href={CV_URL} target="_blank" rel="noopener noreferrer" className="btn-main">Download Dossier</a>
-            <a href="https://linkedin.com/in/sanekhakk" target="_blank" rel="noopener noreferrer" className="btn-link">The Story →</a>
-          </div>
+            <a href={CV_URL} target="_blank" rel="noopener noreferrer" className="btn-main">View CV</a>
+            </div>
         </div>
         
         <div className="hero-visual-right anim d2">
@@ -198,7 +199,7 @@ export default function About() {
         <div className="section-header text-center anim">
           <p className="eyebrow">Beyond the IDE</p>
           <h2 className="display-mid-unique">Digital <em>Alter-Egos</em></h2>
-          <p className="hobbies-sub-unique">What I do when my code is finally building...</p>
+          <p className="hobbies-sub-unique">Things I love beyond development</p>
         </div>
 
         <div className="hobbies-fan-spread anim d2">
@@ -207,7 +208,7 @@ export default function About() {
               <div className="hobby-flip-inner">
                 
                 {/* Front Face */}
-                <div className="hobby-flip-front" style={{ backgroundImage: `url(${h.img})` }}>
+                <div className="hobby-flip-front">
                   <div className="hobby-flip-overlay"></div>
                   <div className="hobby-flip-front-content">
                     <div className="hobby-flip-icon">{h.icon}</div>
