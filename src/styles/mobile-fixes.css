@@ -1,0 +1,579 @@
+/* =====================================================
+   mobile-fixes.css
+   Import this AFTER all other CSS files.
+   Fixes mobile responsiveness for all pages.
+   Breakpoints: 768px (tablet/phone), 480px (small phone)
+   ===================================================== */
+
+/* ─────────────────────────────────────────
+   GLOBAL / SHARED
+───────────────────────────────────────── */
+@media (max-width: 768px) {
+  :root {
+    --section-px: 1.25rem;
+    --nav-h: 64px;
+  }
+
+  .section-header {
+    margin-bottom: 2.5rem;
+    padding: 0 0.5rem;
+  }
+  .section-header .display {
+    font-size: clamp(1.7rem, 7vw, 2.4rem) !important;
+  }
+
+  .chip { font-size: 0.68rem; padding: 0.2rem 0.65rem; }
+
+  .eyebrow { font-size: 0.62rem; letter-spacing: 0.16em; }
+}
+
+
+/* ─────────────────────────────────────────
+   HOME PAGE
+───────────────────────────────────────── */
+@media (max-width: 768px) {
+  .hero {
+    padding-top: calc(var(--nav-h) + 2rem);
+    padding-bottom: 3rem;
+    gap: 2rem;
+    flex-direction: column;
+  }
+
+  .hero-name { font-size: clamp(2.6rem, 10vw, 3.5rem); }
+  .hero-role { font-size: clamp(1rem, 4vw, 1.2rem); justify-content: center; }
+  .hero-bio { font-size: 0.88rem; margin-bottom: 1.75rem; }
+  .hero-cta { gap: 0.6rem; }
+  .hero-cta .btn { padding: 0.75rem 1.5rem; font-size: 0.76rem; }
+
+  .hero-blob-wrap {
+    width: clamp(200px, 70vw, 280px);
+    height: clamp(240px, 85vw, 340px);
+  }
+
+  /* Stats row – 2 columns on phone */
+  .stats-row { flex-wrap: wrap; }
+  .stat { flex: 1 1 50%; border-right: none; border-bottom: 1px solid var(--rose-100); min-width: 0; padding: 1.75rem 1rem; }
+  .stat:nth-child(odd) { border-right: 1px solid var(--rose-100); }
+  .stat-n { font-size: clamp(1.8rem, 7vw, 2.8rem); }
+
+  /* Skills peek – 3 columns */
+  .peek-skills { padding: 4rem var(--section-px); }
+  .peek-grid { grid-template-columns: repeat(3, 1fr); gap: 0.65rem; }
+  .peek-card { padding: 1.1rem 0.5rem 1rem; border-radius: 14px; }
+  .peek-icon-wrap { width: 40px; height: 40px; border-radius: 10px; }
+  .peek-icon-img { width: 22px; height: 22px; }
+  .peek-name { font-size: 0.7rem; }
+
+  /* CTA strip */
+  .home-cta-strip { padding: 3.5rem var(--section-px); }
+  .home-cta-heading { font-size: clamp(1.6rem, 6vw, 2.4rem); }
+}
+
+@media (max-width: 480px) {
+  .hero-name { font-size: 2.4rem; }
+  .peek-grid { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+  .peek-card { padding: 0.9rem 0.35rem 0.85rem; }
+  .peek-icon-wrap { width: 36px; height: 36px; }
+  .peek-icon-img { width: 20px; height: 20px; }
+  .peek-name { font-size: 0.64rem; }
+}
+
+
+/* ─────────────────────────────────────────
+   ABOUT PAGE
+───────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .about-hero-unique {
+    width: 100%;
+    grid-template-columns: 1fr;
+    padding: calc(var(--nav-h) + 2.5rem) var(--section-px) 3rem;
+    text-align: center;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-page-unique { overflow-x: hidden; }
+
+  .kinetic-bg-about { font-size: 22vw; top: 5%; }
+
+  /* Hero */
+  .about-hero-unique {
+    padding: calc(var(--nav-h) + 2rem) var(--section-px) 3rem;
+    gap: 2rem;
+  }
+
+  .hero-title-unique {
+    font-size: clamp(2rem, 8vw, 3rem);
+    margin: 0.5rem 0 1rem;
+  }
+
+  .hero-description-unique {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
+  }
+
+  .hero-pillars-unique {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    padding: 1rem;
+    max-width: 100%;
+    margin: 0 auto 1.5rem;
+  }
+  .hero-pillar-item { font-size: 0.8rem; }
+
+  .about-actions-unique { justify-content: center; }
+  .btn-main { padding: 0.9rem 1.8rem; font-size: 0.82rem; }
+
+  /* Orbit visual */
+  .hero-visual-right { height: 280px; margin-top: 0; }
+  .central-core-about { width: 110px; height: 110px; }
+  .core-initials-about { font-size: 2.5rem; }
+  .orbit-item-about { font-size: 0.65rem; padding: 0.4rem 0.85rem; }
+
+  /* Blueprint section */
+  .v5-blueprint-section { padding: 3.5rem var(--section-px); }
+  .v5-blueprint-container { flex-direction: column; gap: 2rem; }
+  .v5-sticky-left {
+    flex: none;
+    position: relative;
+    top: 0 !important;
+    text-align: center;
+    max-width: 100%;
+  }
+  .v5-section-title { font-size: clamp(2rem, 7vw, 3rem); }
+  .v5-section-desc { font-size: 0.9rem; }
+  .v5-scroll-indicator { justify-content: center; }
+
+  .v5-scroll-right-stacked { gap: 1.5rem; padding-bottom: 2rem; }
+  .v5-stacked-card {
+    position: relative !important;
+    top: 0 !important;
+    padding: 1.75rem 1.25rem;
+    border-radius: 20px;
+    min-height: auto;
+  }
+  .v5-stacked-watermark { font-size: 8rem; bottom: -10px; right: -5px; }
+  .v5-stacked-main { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .v5-stacked-icon { width: 52px; height: 52px; font-size: 1.8rem; border-radius: 14px; }
+  .v5-stacked-card h3 { font-size: 1.4rem; }
+  .v5-org { font-size: 0.9rem; }
+  .v5-stacked-desc { font-size: 0.88rem; line-height: 1.65; }
+  .v5-milestone-header { flex-direction: column; align-items: flex-start; gap: 0.5rem; margin-bottom: 1.25rem; }
+  .v5-year-badge { font-size: 0.8rem; }
+
+  /* Hobbies */
+  .hobbies-section-unique { padding: 4rem var(--section-px); }
+  .hobbies-fan-spread {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    perspective: none;
+  }
+  .hobby-fan-card {
+    width: 100%;
+    max-width: 340px;
+    height: 320px;
+    transform: none !important;
+  }
+  .hobby-fan-card:hover { transform: translateY(-6px) !important; }
+  .hobby-flip-front-content h3 { font-size: 1.6rem; }
+  .hobby-flip-back h3 { font-size: 1.4rem; }
+  .hobby-flip-back p { font-size: 0.88rem; }
+
+  /* CTA */
+  .about-footer-cta-unique { padding: 4rem var(--section-px); }
+  .cta-unique-card { padding: 2.5rem 1.5rem; border-radius: 24px; }
+  .cta-unique-card h2 { font-size: clamp(1.6rem, 6vw, 2.5rem); }
+  .cta-unique-card p { font-size: 0.9rem; }
+}
+
+@media (max-width: 480px) {
+  .hero-pillars-unique { grid-template-columns: 1fr; max-width: 260px; }
+  .hero-visual-right { height: 220px; }
+  .hobby-fan-card { height: 280px; }
+}
+
+
+/* ─────────────────────────────────────────
+   EXPERIENCE PAGE
+───────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Banner */
+  .exp-banner { padding: 5rem var(--section-px) 3rem; }
+  .exp-stats {
+    padding: 1rem var(--section-px);
+    gap: 0;
+    border-radius: 16px;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .exp-stat { padding: 0.75rem 1.25rem; flex: 1 1 50%; min-width: 0; }
+  .exp-stat-divider { display: none; }
+  .exp-stat-n { font-size: 1.8rem; }
+  .exp-stat-l { font-size: 0.62rem; }
+
+  /* Cards section */
+  .exp-cards-section { padding: 3.5rem var(--section-px) 3rem; }
+  .exp-timeline-line { display: none; }
+  .exp-timeline-wrap { max-width: 100%; }
+  .exp-timeline-item {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  .exp-timeline-node {
+    width: 44px; height: 44px;
+    margin-bottom: 0.5rem;
+  }
+  .exp-node-year { font-size: 0.58rem; }
+
+  .exp-cards-list { gap: 1.75rem; }
+  .exp-card { padding: 1.5rem 1.25rem; border-radius: 18px; }
+
+  .exp-card-header { margin-bottom: 1rem; }
+  .exp-type-badge { font-size: 0.62rem; padding: 0.22rem 0.7rem; }
+  .exp-period { font-size: 0.6rem; }
+
+  .exp-company-wrap { gap: 0.75rem; margin-bottom: 1.25rem; }
+  .exp-company-name { font-size: 0.6rem; letter-spacing: 0.12em; }
+  .exp-role { font-size: 1.3rem; }
+
+  .exp-metrics {
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 1.25rem;
+  }
+  .exp-metric { padding: 0.7rem 0.5rem; }
+  .exp-metric-value { font-size: 1.2rem; }
+  .exp-metric-label { font-size: 0.58rem; }
+
+  .exp-bullets { gap: 0.65rem; margin-bottom: 1.25rem; }
+  .exp-bullet { font-size: 0.82rem; gap: 0.65rem; line-height: 1.6; }
+  .exp-bullet-dot { width: 14px; height: 14px; flex-shrink: 0; }
+
+  /* Achievements */
+  .achievements-section { padding: 3.5rem var(--section-px) 4rem; }
+  .achievements-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+  .achieve-card { padding: 1.5rem 1.25rem; border-radius: 18px; }
+  .achieve-icon { width: 44px; height: 44px; font-size: 1.3rem; border-radius: 12px; }
+  .achieve-title { font-size: 1rem; }
+  .achieve-desc { font-size: 0.82rem; line-height: 1.7; }
+}
+
+@media (max-width: 480px) {
+  .exp-stat { flex: 1 1 45%; }
+  .exp-metrics { grid-template-columns: repeat(3, 1fr); }
+  .exp-metric-value { font-size: 1.1rem; }
+}
+
+
+/* ─────────────────────────────────────────
+   CERTIFICATIONS PAGE
+───────────────────────────────────────── */
+@media (max-width: 768px) {
+  .certs-banner { padding: 5rem var(--section-px) 3rem; }
+
+  .certs-stats {
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-radius: 16px;
+    padding: 1rem 0;
+    width: 100%;
+    justify-content: center;
+  }
+  .certs-stat {
+    padding: 0.75rem 1.5rem;
+    flex: 1 1 33%;
+    min-width: 0;
+    border-left: none !important;
+  }
+  .certs-stat + .certs-stat { border-left: 1px solid var(--rose-100) !important; }
+  .certs-stat-n { font-size: 1.8rem; }
+
+  /* Main grid */
+  .certs-main-section { padding: 3.5rem var(--section-px) 3rem; }
+  .certs-main-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .cert-main-card { border-radius: 18px; }
+  .cmc-body { padding: 1.5rem 1.25rem 1.25rem; }
+  .cmc-icon-wrap { width: 46px; height: 46px; border-radius: 12px; }
+  .cmc-name { font-size: 1rem; }
+  .cmc-desc { font-size: 0.82rem; }
+  .cmc-issuer { font-size: 0.72rem; }
+
+  /* Training */
+  .training-section { padding: 3.5rem var(--section-px) 4rem; }
+  .training-card {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1.5rem 1.25rem;
+    border-radius: 18px;
+  }
+  .tc-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-align: left;
+  }
+  .tc-icon { width: 52px; height: 52px; font-size: 1.5rem; border-radius: 14px; margin: 0; }
+  .tc-name { font-size: 1rem; }
+  .tc-desc { font-size: 0.82rem; line-height: 1.7; }
+}
+
+@media (max-width: 480px) {
+  .certs-stat { flex: 1 1 100%; border-left: none !important; border-top: 1px solid var(--rose-100); }
+  .certs-stat:first-child { border-top: none; }
+  .certs-stats { padding: 0; }
+}
+
+
+/* ─────────────────────────────────────────
+   CONTACT PAGE
+───────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .v6-contact-container {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding-top: 1.5rem;
+  }
+  .v6-info-col { text-align: center; align-items: center; }
+  .v6-presence-grid { align-items: center; }
+  .v6-status-block { flex-direction: column; gap: 1rem; }
+}
+
+@media (max-width: 768px) {
+  .contact-v6-wrapper {
+    padding-top: calc(var(--nav-h) + 2rem);
+    padding-bottom: 4rem;
+    align-items: flex-start;
+  }
+
+  .v6-heading { font-size: clamp(1.9rem, 7vw, 2.8rem); margin-bottom: 2rem; }
+  .v6-eyebrow { font-size: 0.72rem; margin-bottom: 1rem; }
+
+  .v6-presence-grid { gap: 1.5rem; margin-bottom: 2rem; }
+  .v6-link-large { font-size: clamp(1.1rem, 5vw, 1.5rem); }
+  .v6-label { font-size: 0.68rem; }
+  .v6-social-links { gap: 1.25rem; font-size: 0.9rem; justify-content: center; }
+
+  .v6-status-block { padding-top: 1.5rem; gap: 1rem; }
+  .v6-time-value { font-size: 1rem; }
+  .v6-availability { font-size: 0.78rem; padding: 0.5rem 1rem; }
+
+  /* Form card */
+  .v6-glass-form-card {
+    padding: 1.75rem 1.25rem;
+    border-radius: 20px;
+  }
+  .v6-form-sentence {
+    font-size: 1.05rem;
+    line-height: 2.0;
+  }
+  .v6-inline-input {
+    display: block;
+    width: 100%;
+    margin: 0.4rem 0 0.8rem;
+    padding-bottom: 0.25rem;
+    text-align: left;
+    font-size: 0.95rem;
+    border-bottom: 1.5px solid var(--rose-200);
+  }
+  .v6-input-long { width: 100%; }
+  .v6-inline-textarea {
+    font-size: 0.92rem;
+    min-height: 60px;
+    margin-top: 0.75rem;
+  }
+  .v6-form-footer { justify-content: center; }
+  .v6-submit-btn { padding: 0.85rem 1.75rem; font-size: 0.88rem; }
+
+  /* Success state */
+  .v6-success-icon { width: 56px; height: 56px; font-size: 1.5rem; }
+  .v6-success-state h3 { font-size: 1.5rem; }
+  .v6-success-state p { font-size: 0.9rem; }
+}
+
+@media (max-width: 480px) {
+  .v6-heading { font-size: 1.75rem; }
+  .v6-link-large { font-size: 1.05rem; }
+  .v6-glass-form-card { padding: 1.5rem 1rem; }
+  .v6-form-sentence { font-size: 0.95rem; line-height: 1.9; }
+}
+
+
+/* ─────────────────────────────────────────
+   PROJECTS PAGE
+───────────────────────────────────────── */
+@media (max-width: 768px) {
+  .projects-banner { padding: 5rem var(--section-px) 3rem; }
+
+  .projects-count-strip {
+    padding: 0.65rem 1.5rem;
+    gap: 0.75rem;
+    border-radius: 40px;
+  }
+  .pcs-num { font-size: 1.5rem; }
+  .pcs-label { font-size: 0.65rem; }
+  .pcs-sep { height: 24px; }
+
+  /* Project cards */
+  .projects-all-section { padding-top: 1rem; }
+  .projects-v3-list { padding: 0 var(--section-px); }
+  .project-v3-card {
+    margin-bottom: 2.5rem;
+    border-radius: 22px;
+    box-shadow: 0 10px 30px -8px rgba(155, 63, 95, 0.12);
+  }
+
+  /* Stack visual on top, info below */
+  .project-v3-grid { grid-template-columns: 1fr; }
+
+  .project-v3-visual { padding: 1.5rem 1.25rem 0; }
+  .mockup-container { border-radius: 14px; }
+  .mockup-header { padding: 8px 12px; }
+  .mockup-dots span { width: 6px; height: 6px; }
+  .mockup-address { font-size: 8px; padding: 3px 10px; }
+  .nav-btn { width: 32px; height: 32px; }
+  .nav-btn svg { width: 14px; height: 14px; }
+  .indicator-bar { width: 20px; height: 3px; }
+  .indicator-bar.active { width: 32px; }
+  .mockup-indicators { padding: 10px 12px; gap: 5px; }
+
+  .project-v3-info { padding: 1.5rem 1.25rem 1.75rem; }
+
+  /* Meta row */
+  .pc-meta { flex-direction: column; align-items: flex-start; gap: 0.65rem; margin-bottom: 0.85rem; }
+  .pc-meta-right { align-items: flex-start; gap: 0.4rem; flex-direction: row; flex-wrap: wrap; }
+  .pc-badges { flex-wrap: wrap; }
+  .pc-type-badge { font-size: 0.6rem; padding: 0.2rem 0.65rem; }
+  .pc-period { font-size: 0.6rem; }
+
+  /* Title & desc */
+  .project-v3-title { font-size: clamp(1.5rem, 6vw, 2rem); }
+  .pc-tagline { font-size: 0.82rem; margin-bottom: 0.6rem; }
+  .project-v3-desc { font-size: 0.84rem; line-height: 1.7; margin-bottom: 1.25rem; }
+
+  /* Stats */
+  .pc-stats {
+    max-width: 100%;
+    margin-bottom: 1.25rem;
+  }
+  .pc-stat { padding: 0.65rem 0.5rem; }
+  .pc-stat-value { font-size: 1.3rem; }
+  .pc-stat-label { font-size: 0.58rem; }
+
+  /* Highlights */
+  .pc-highlights { gap: 0.5rem; margin-bottom: 1.25rem; }
+  .pc-hl { font-size: 0.82rem; gap: 0.65rem; line-height: 1.6; }
+  .pc-hl-dot { width: 16px; height: 16px; flex-shrink: 0; }
+
+  /* Actions */
+  .v3-actions { gap: 0.5rem; flex-wrap: wrap; }
+  .v3-btn-primary { padding: 0.5rem 1.1rem; font-size: 0.74rem; }
+  .v3-btn-icon { width: 32px; height: 32px; }
+
+  /* Stack chips */
+  .v3-stack { padding-top: 1rem; gap: 0.45rem; }
+
+  /* GitHub CTA */
+  .projects-github-cta { margin: 2rem var(--section-px) 3rem; }
+  .pgc-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+    padding: 1.75rem 1.5rem;
+    border-radius: 20px;
+  }
+  .pgc-icon { width: 44px; height: 44px; border-radius: 10px; }
+  .pgc-title { font-size: 0.95rem; }
+  .pgc-sub { font-size: 0.8rem; }
+}
+
+@media (max-width: 480px) {
+  .project-v3-visual { padding: 1.25rem 1rem 0; }
+  .project-v3-info { padding: 1.25rem 1rem 1.5rem; }
+  .project-v3-title { font-size: 1.4rem; }
+  .pc-stats { grid-template-columns: repeat(3, 1fr); }
+  .projects-v3-list { padding: 0 var(--section-px); }
+}
+
+
+/* ─────────────────────────────────────────
+   SKILLS PAGE
+───────────────────────────────────────── */
+@media (max-width: 768px) {
+  .skills-banner { padding: 5rem var(--section-px) 3rem; }
+  .skills-count-strip {
+    padding: 0.65rem 1.5rem;
+    gap: 0.75rem;
+  }
+  .scs-num { font-size: 1.5rem; }
+  .scs-label { font-size: 0.62rem; }
+
+  .skills-body { padding: 3rem var(--section-px) 3rem; gap: 2.5rem; }
+  .scb-header { margin-bottom: 1.25rem; gap: 0.75rem; }
+  .scb-pill { padding: 0.35rem 0.85rem; }
+  .scb-pill-label { font-size: 0.65rem; }
+  .scb-count { font-size: 0.62rem; }
+
+  .skills-icon-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.65rem;
+  }
+  .skill-icon-card {
+    padding: 1.25rem 0.5rem 1rem;
+    border-radius: 16px;
+  }
+  .skill-ring-wrap { width: 56px; height: 56px; margin-bottom: 0.75rem; }
+  .skill-ring-inner img { width: 26px; height: 26px; }
+  .skill-card-name { font-size: 0.75rem; }
+  .skill-card-perc { font-size: 0.62rem; }
+  .skill-card-note { font-size: 0.55rem; padding: 1px 5px; }
+
+  /* Tools */
+  .skills-tools-section { padding: 3.5rem var(--section-px); }
+  .tool-icon-card { padding: 1.1rem 1.1rem 0.9rem; min-width: 82px; border-radius: 14px; }
+  .tool-icon-card img { width: 26px; height: 26px; }
+  .tool-icon-card span { font-size: 0.66rem; }
+}
+
+@media (max-width: 480px) {
+  .skills-icon-grid { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+  .skill-ring-wrap { width: 48px; height: 48px; }
+  .skill-ring-inner img { width: 22px; height: 22px; }
+  .skill-card-name { font-size: 0.68rem; }
+}
+
+
+/* ─────────────────────────────────────────
+   NAVBAR MOBILE
+───────────────────────────────────────── */
+@media (max-width: 768px) {
+  .navbar { padding: 0 1.25rem; height: var(--nav-h); }
+  .nav-logo-text { font-size: 1.2rem; }
+  .nav-logo-sub { display: none; }
+}
+
+
+/* ─────────────────────────────────────────
+   FOOTER MOBILE
+───────────────────────────────────────── */
+@media (max-width: 768px) {
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 3rem var(--section-px) 2rem;
+  }
+  .footer-logo { font-size: 1.4rem; }
+  .footer-tagline { font-size: 0.72rem; max-width: 100%; }
+  .footer-links a { font-size: 0.78rem; }
+  .footer-copy { font-size: 0.65rem; }
+}
+
+@media (max-width: 480px) {
+  .footer-inner { grid-template-columns: 1fr; }
+  .footer-socials { gap: 0.5rem; }
+  .footer-socials a { width: 36px; height: 36px; font-size: 0.68rem; }
+}

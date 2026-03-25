@@ -10,7 +10,7 @@ import Projects from './pages/Projects';
 import About from './pages/About';
 import Certifications from './pages/Certifications';
 import Contact from './pages/Contact';
-
+import './styles/mobile-fixes.css'; 
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
