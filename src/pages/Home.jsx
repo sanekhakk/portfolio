@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import '../styles/Home.css';
-import profileImg from '../assets/profile.png';
+import profileImg from '../assets/profile.webp';
 
 const DEVICON = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons';
 
